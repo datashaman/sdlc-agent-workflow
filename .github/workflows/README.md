@@ -1,16 +1,16 @@
 # Workflows
 
-This directory is reserved for future GitHub Actions that enforce or automate the workflow state machine.
+This directory is reserved for future GitHub Actions that enforce the repo-first workflow.
 
 Possible checks:
 
-- require an architecture approval before product review
-- require product approval before merge
-- validate known workflow labels
-- prevent invalid state transitions
-- prevent labels that duplicate native GitHub state, such as applying `draft` to a draft PR or using a final `merged-closed` label
-- prevent workflow labels that duplicate native PR review state, such as `technical-review` or `technical-changes-requested`
-- prevent workflow labels or comments that duplicate native PO product-review approval or requested-changes review state
-- prevent workflow labels that duplicate committed architecture artifacts or PR approvals, such as `architecture-planning`, `architecture-approved`, or `ready-for-implementation`
-- prevent routine workflow-state labels other than `implementing` and `needs-product-input`
-- validate workflow label colors: blue for active implementation, orange for blocked product input
+- require `changes/<change-id>/state.md` for active change PRs
+- validate known state names and allowed transitions
+- require ordered `changes/<change-id>/specs/NN-*.md` files
+- require Markdown checkboxes in `changes/<change-id>/tasks.md`
+- require Architect PR approval before product review
+- require PO PR approval before merge
+- allow only `implementing` and `needs-product-input` as workflow labels
+- validate workflow label colors and descriptions
+- warn when labels duplicate native PR draft/ready, PR review, merged PR, or closed issue state
+- warn when PR body text appears to carry canonical workflow state instead of linking to repo artifacts

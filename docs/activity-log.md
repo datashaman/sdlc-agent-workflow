@@ -1,53 +1,45 @@
 # Activity Log
 
-1. PO describes the problem, desired outcome, and acceptance criteria to the PO Agent. `[PO]`
+This is the expected workflow for a change. The durable record is the change folder under `changes/`; GitHub is used for collaboration and review mechanics.
 
-2. PO Agent creates the issue. `[PA]`
+1. PO describes the problem, desired outcome, and acceptance criteria on an issue. `[PO]`
 
-3. PO Agent opens a draft PR or working branch and links it to the issue. `[PA]`
+2. PO Agent creates or updates the repo-backed change artifacts on a draft PR or working branch. `[PA]`
 
-4. PO Agent prepares repo-backed product artifacts on the PR. `[PA]`
+   - `changes/<change-id>/state.md`
+   - `changes/<change-id>/proposal.md`
+   - ordered `changes/<change-id>/specs/NN-*.md`
 
-   1. PO Agent creates or updates `changes/<change-id>/proposal.md` from the issue body and PO clarifications. `[PA]`
-   2. PO Agent creates or updates ordered `changes/<change-id>/specs/NN-*.md` specs or user stories from the proposal. `[PA]`
-   3. PO Agent ensures specs include Title, Narrative with As a / I want / so that, and Acceptance Criteria with Given / When / Then scenarios. `[PA]`
-   4. PO accepts the committed proposal and specs as ready for architecture review. `[PO]`
+3. PO accepts the committed proposal and specs as ready for architecture review. `[PO]`
 
-5. Product clarification loop, until scope is clear enough for architecture review:
+4. PO Agent updates `state.md` to `architecture-review` and marks the PR ready for review. `[PA]`
 
-   1. Architect Agent reviews the accepted committed product artifacts for scope, feasibility, constraints, and architectural impact, using the issue as source history. `[AA]`
-   2. If the work is unclear or infeasible, Architect Agent posts questions or constraints on the issue. `[AA]`
-   3. PO Agent reads the issue comments and asks the PO for clarification, if PO Agent cannot clarify intent. `[PA]`
-   4. PO or PO Agent clarifies requirements, tradeoffs, or acceptance criteria. `[PO|PA]`
-   5. PO Agent updates the committed proposal and spec artifacts with the clarified product direction before architecture review resumes. `[PA]`
+5. Architect Agent reviews the committed product artifacts for scope, feasibility, constraints, and architectural impact. `[AA]`
 
-6. Architecture planning loop, until the Architect approves the technical direction:
+6. If product input is needed, Architect Agent asks on the issue or PR, sets `state.md` to `needs-product-input`, and applies the `needs-product-input` label. `[AA]`
 
-   1. Architect Agent reviews the accepted committed product artifacts and recommends a technical approach to the Architect. `[AA]`
-   2. Architect approves, rejects, or adjusts the architecture direction. `[Arch]`
-   3. If the Architect rejects or adjusts the direction, Architect Agent revises the technical approach. `[AA]`
-   4. If the Architect Agent finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-input`. `[AA]`
+7. PO or PO Agent clarifies product intent, updates PO-owned product artifacts, removes the blocking label, and returns `state.md` to the appropriate review state. `[PO|PA]`
 
-7. Architect Agent records the approved technical approach in a separate architecture artifact on the PR. `[AA]`
+8. Architect Agent records the technical approach in `architecture.md` and implementation tasks in `tasks.md`. `[AA]`
 
-8. Architect Agent breaks the work into implementation tasks, then updates `changes/<change-id>/state.md` to `implementing`. `[AA]`
+9. Architect approves the technical direction with a PR review. `[Arch]`
 
-9. Implementation and review loop, until both GitHub PR technical review and GitHub PR product review pass:
+10. Architect Agent updates `state.md` to `implementing` and applies the `implementing` label while implementation is active. `[AA]`
 
-   1. Implementation Agent implements the tasks. `[IA]`
-   2. Implementation Agent updates progress in the PR. `[IA]`
-   3. Architect Agent reviews the implementation for quality, architecture fit, and alignment with the technical approach. `[AA]`
-   4. Architect approves or rejects the implementation from a technical/architectural perspective. `[Arch]`
-   5. If Architect rejects the implementation, Architect Agent records required technical changes through GitHub PR review comments or requested-changes review state. `[AA]`
-   6. If technical changes are required, Implementation Agent fixes the implementation and the GitHub PR review cycle restarts. `[IA]`
-   7. PO Agent checks the delivered behavior against the acceptance criteria during product review. `[PA]`
-   8. PO Agent summarizes the outcome for the PO in the PR review body. `[PA]`
-   9. PO reviews the delivered behavior using a GitHub PR review. `[PO]`
-   10. If PO rejects the delivered behavior, PO uses a GitHub requested-changes review and PO Agent updates `changes/<change-id>/state.md` to `needs-product-input`. `[PO|PA]`
-   11. If behavior changes are required, Implementation Agent fixes the implementation and the implementation loop restarts. `[IA]`
+11. Implementation Agent completes the tasks on the PR and updates task checkboxes in `tasks.md`. `[IA]`
 
-10. If the delivered behavior is accepted, PO approves the PR review. `[PO]`
+12. Architect Agent reviews implementation quality, architecture fit, and alignment with the approved approach. `[AA]`
 
-11. PO Agent records the approval in `changes/<change-id>/state.md`. `[PA]`
+13. Architect approves or requests technical changes through a GitHub PR review. `[Arch]`
 
-12. Architect Agent merges the PR and closes the issue using native GitHub merged/closed state. `[AA]`
+14. If technical changes are requested, Implementation Agent addresses them and the PR review cycle repeats while `state.md` remains `implementing`. `[IA]`
+
+15. After technical approval, PO Agent updates `state.md` to `product-review`, removes `implementing`, and summarizes product-review context for the PO if needed. `[PA]`
+
+16. PO approves or requests product changes through a GitHub PR review. `[PO]`
+
+17. If product changes are requested, PO Agent updates `state.md` to `needs-product-input` or `implementing`, depending on whether requirements or implementation need to change. `[PA]`
+
+18. After PO approval, PO Agent updates `state.md` to `accepted`. `[PA]`
+
+19. Architect Agent merges the PR and closes the issue using native GitHub state. `[AA]`

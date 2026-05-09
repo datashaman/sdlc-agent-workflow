@@ -1,19 +1,15 @@
 # SDLC Agent Workflow
 
-This repository captures a lightweight two-person SDLC workflow where a Product Owner and Architect use agents to manage issue/PR state, implementation, review, and acceptance.
+This repository captures a lightweight SDLC workflow where a Product Owner and Architect use agents to prepare repo-backed change artifacts, implement work through PRs, and record human approval gates.
 
-The workflow assumes:
+The current approach is repo-first:
 
-- product intent starts on the issue
-- implementation and review happen on the PR
-- agents communicate through issue/PR artifacts, not direct private handoffs
-- humans remain approval gates for product and architecture decisions
-
-For each change, source of truth is stage-specific:
-
-- before proposal creation, the issue is the trigger and initial product source material
-- after PO preparation, committed files under `changes/<change-id>/` are the canonical product artifacts
-- the PR body is an index and status summary, not the canonical product artifact
+- issues capture the initial product trigger and discussion history
+- `changes/<change-id>/` contains the durable workflow artifacts
+- `state.md` is the canonical workflow state
+- PR draft/ready state signals review readiness
+- PR reviews capture Architect technical approval and PO product approval
+- labels are limited to active visual signals
 
 ## Core Roles
 
@@ -23,14 +19,18 @@ For each change, source of truth is stage-specific:
 - `AA`: Architect Agent
 - `IA`: Implementation Agent
 
+## GitHub Labels
+
+Only two workflow labels are expected:
+
+- `implementing`: implementation work is actively underway
+- `needs-product-input`: progress is blocked on PO or PO Agent input
+
+Do not duplicate native GitHub state with labels for draft, review, approval, merge, or close.
+
 ## Docs
 
 - [Activity Log](docs/activity-log.md)
-- [State Machine](docs/state-machine.md)
+- [Workflow State](docs/state-machine.md)
 - [Agent Roles](docs/agent-roles.md)
-
-## Change Artifacts
-
-Each in-progress workflow change keeps its proposal, specs, architecture review, and implementation planning artifacts together under `changes/`.
-
-- [Changes](changes/)
+- [Change Artifacts](changes/)

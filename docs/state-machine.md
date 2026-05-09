@@ -1,13 +1,23 @@
-# State Machine
+# Workflow State
 
-## Statuses
+The workflow has one durable state record per change:
 
-- `draft`
-- `architecture-review`
-- `needs-product-input`
-- `implementing`
-- `product-review`
-- `accepted`
+```text
+changes/<change-id>/state.md
+```
+
+GitHub labels, PR titles, PR bodies, issue comments, and timeline events are not the source of truth for workflow state. They are operational signals only.
+
+## States
+
+`state.md` may use these states:
+
+- `draft`: product intent and repo-backed product artifacts are still being prepared.
+- `architecture-review`: committed product artifacts are ready for Architect review.
+- `needs-product-input`: progress is blocked on PO or PO Agent clarification or product change.
+- `implementing`: implementation work or technical review is active.
+- `product-review`: technically approved work is ready for PO product review.
+- `accepted`: PO has accepted the delivered behavior.
 
 ## Transitions
 
@@ -20,44 +30,37 @@ implementing -> product-review
 product-review -> needs-product-input
 needs-product-input -> implementing
 product-review -> accepted
+accepted -> native GitHub merge and issue close
 ```
 
-## Event Triggers
+## GitHub Signals
 
-- PO submits product intent: `draft`
-- Issue and PR are created: `draft`
-- PO Agent creates committed proposal and ordered spec artifacts: `draft`
-- PO accepts the committed proposal and specs for architecture review: `architecture-review`
-- Architect Agent posts clarification questions: `needs-product-input`
-- PO Agent updates committed proposal/spec artifacts after clarification: `draft`
-- Architecture review finds product ambiguity or missing acceptance criteria: `needs-product-input`
-- Architect approves direction and implementation tasks are ready: `implementing`
-- Architect approves implementation: `product-review`
-- PO rejects delivered behavior: `needs-product-input`
-- PO approves delivered behavior: `accepted`
-- Work is merged or closed: native GitHub merged/closed state
+Use GitHub for collaboration mechanics, not as a second workflow state machine.
 
-## State Requirements
+- Use the PR draft state while the change is not ready for human review.
+- Mark the PR ready for review when Architect or PO review is needed.
+- Use PR reviews for Architect technical approval or requested changes.
+- Use PR reviews for PO product approval or requested changes.
+- Use native merged PR state and closed issue state for completed work.
+- Keep the PR body as an index to the issue and repo artifacts.
 
-- `draft`: issue creation, PR or branch creation, product clarification, and PO-owned proposal/spec preparation may happen here.
-- `architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
-- `needs-product-input`: returns control to the PO Agent or PO when product intent, acceptance criteria, or delivered behavior needs clarification or change.
-- `implementing`: Architect has approved the technical direction, implementation tasks exist, and Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
-- `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval. Approval or rejection should use native GitHub PR review state.
-- `accepted`: PO has accepted the delivered behavior. After this state, the PR should be merged and the issue should be closed using native GitHub state rather than a final status label.
+## Labels
 
-## Repo State And GitHub Signals
+Only use labels for visible queue signals that are useful at a glance.
 
-The canonical workflow state lives in `changes/<change-id>/state.md`.
+- `implementing` `#1d76db`: implementation work is actively underway.
+- `needs-product-input` `#d93f0b`: progress is blocked on PO or PO Agent input.
 
-Use native GitHub PR state and reviews for review signaling. Use labels only for lightweight queue visibility.
+Do not add labels for states already represented by `state.md`, PR draft/ready state, PR reviews, merged PRs, or closed issues.
 
-- Treat absence of a workflow label on an open change issue as `draft`.
-- Use GitHub's native draft PR state before the PR is ready for the next human review gate.
-- Use GitHub's native ready-for-review PR state when the PR is ready for Architect or PO review.
-- Use GitHub's native PR review state for Architect technical review, PO product review, approvals, and requested changes.
-- Use committed artifacts and `state.md` for exact workflow state, including `architecture-review`, `implementing`, `product-review`, and `accepted`.
-- Use the blue `implementing` label while implementation work is actively underway.
-- Use the orange `needs-product-input` label when PO or PO Agent input is blocking progress.
-- Use GitHub's native merged PR state and closed issue state for completed work.
-- Keep the PR body as an index and status summary. Avoid commenting or relabeling for routine state transitions when updating `state.md` is sufficient.
+## State Record
+
+`state.md` should include:
+
+- current state
+- last state change date
+- actor who moved the state
+- short reason or decision record
+- links to relevant issue, PR, review, or committed artifact
+
+Routine transitions should update `state.md`. Avoid timeline noise from comments, label churn, or PR body edits when a state-file update is sufficient.

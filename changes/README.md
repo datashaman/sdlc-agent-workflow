@@ -1,31 +1,39 @@
 # Change Artifacts
 
-Each in-progress workflow change must keep durable workflow artifacts under `changes/<change-id>/`.
+Each in-progress workflow change keeps durable artifacts under `changes/<change-id>/`.
 
 The change ID should be stable and readable. Prefer an issue-number prefix plus a short slug, such as `issue-2-po-agent-pr-artifacts`.
 
-## Required Workflow Artifact
+## Required Files
 
-Every change folder must include `state.md`.
+Every change folder must include:
 
-`state.md` is the canonical workflow state for the change. It should include:
+- `state.md`: canonical workflow state and state-change record.
+- `proposal.md`: PO-owned product intent derived from the issue and PO clarifications.
+- `specs/NN-*.md`: PO-owned ordered specs or user stories.
+- `architecture.md`: Architect Agent-owned technical approach and constraints.
+- `tasks.md`: Architect Agent-owned implementation checklist.
 
-- current workflow state
+## State
+
+`state.md` is the source of truth for workflow state. It should include:
+
+- current state
 - last state change date
 - actor who moved the state
 - short reason or decision record
-- links to the relevant issue, PR, review, or committed artifact
+- links to the relevant issue, PR, review, or artifact
 
-GitHub labels are not the source of truth. Use `implementing` as a visible signal that implementation work is active, and use `needs-product-input` when PO or PO Agent input is blocking progress.
+GitHub labels are not the source of truth. Use only:
 
-## Required Product Artifacts
+- `implementing` when implementation work is actively underway
+- `needs-product-input` when PO or PO Agent input is blocking progress
 
-The PO Agent owns these files throughout the change:
+## Product Artifacts
 
-- `proposal.md`: the formalized product intent derived from the issue body and later PO clarifications.
-- `specs/NN-*.md`: ordered specs or user stories derived from the proposal.
+The PO Agent owns `proposal.md` and `specs/`.
 
-Each spec file must use a deterministic reading order. Prefer numeric filename prefixes such as `01-repo-backed-proposal.md`, `02-user-story.md`, and `03-acceptance-scenarios.md`. If numeric prefixes are not used, the change folder must include an explicit ordered index.
+Each spec file must use a deterministic reading order. Prefer numeric filename prefixes such as `01-repo-backed-proposal.md`, `02-user-story.md`, and `03-acceptance-scenarios.md`.
 
 Each spec or user story should include:
 
@@ -33,14 +41,17 @@ Each spec or user story should include:
 - `Narrative`: `As a`, `I want`, and `so that` clauses.
 - `Acceptance Criteria`: scenarios using `Given`, `When`, and `Then` clauses.
 
-## Review And Implementation Artifacts
+After architecture review begins, the Architect Agent consumes PO-owned product artifacts but does not directly edit them. If product intent needs to change, move to `needs-product-input` so the PO Agent can update the proposal or specs.
 
-Architecture and implementation artifacts must be separate from PO-owned product artifacts:
+## Architecture And Tasks
 
-- `architecture.md`: Architect Agent-owned recommendation, constraints, and approved technical approach.
-- `tasks.md`: Architect Agent-owned implementation checklist.
-- optional review or dogfood notes, when useful for follow-up work.
+The Architect Agent owns `architecture.md` and `tasks.md`.
 
-After PO preparation is accepted, the committed files under `changes/<change-id>/` are the canonical product artifacts for architecture review and implementation. `state.md` is the canonical workflow state. The issue remains the trigger and source history. The PR body is an index and status summary.
+`tasks.md` must use Markdown checkboxes so implementation progress can be tracked in the repo:
 
-After architecture review begins, the Architect Agent consumes PO-owned product artifacts but does not directly edit them. If product intent needs to change, the workflow moves to `needs-product-input` so the PO Agent can update the proposal or specs.
+```markdown
+- [ ] Implement the smallest useful behavior slice.
+- [ ] Update tests or verification notes.
+```
+
+Architecture and task artifacts should reference the accepted product artifacts rather than duplicating them.
