@@ -3,7 +3,7 @@
 ## Statuses
 
 - `draft`
-- `ready-for-architecture-review`
+- `architecture-review`
 - `needs-product-input`
 - `in-implementation`
 - `product-review`
@@ -12,10 +12,10 @@
 ## Transitions
 
 ```text
-draft -> ready-for-architecture-review
-ready-for-architecture-review -> needs-product-input
+draft -> architecture-review
+architecture-review -> needs-product-input
 needs-product-input -> draft
-ready-for-architecture-review -> in-implementation
+architecture-review -> in-implementation
 in-implementation -> product-review
 product-review -> needs-product-input
 needs-product-input -> in-implementation
@@ -27,7 +27,7 @@ product-review -> accepted
 - PO submits product intent: `draft`
 - Issue and PR are created: `draft`
 - PO Agent creates committed proposal and ordered spec artifacts: `draft`
-- PO accepts the committed proposal and specs for architecture review: `ready-for-architecture-review`
+- PO accepts the committed proposal and specs for architecture review: `architecture-review`
 - Architect Agent posts clarification questions: `needs-product-input`
 - PO Agent updates committed proposal/spec artifacts after clarification: `draft`
 - Architecture review finds product ambiguity or missing acceptance criteria: `needs-product-input`
@@ -40,7 +40,7 @@ product-review -> accepted
 ## State Requirements
 
 - `draft`: issue creation, PR or branch creation, product clarification, and PO-owned proposal/spec preparation may happen here.
-- `ready-for-architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
+- `architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
 - `needs-product-input`: returns control to the PO Agent or PO when product intent, acceptance criteria, or delivered behavior needs clarification or change.
 - `in-implementation`: Architect has approved the technical direction, implementation tasks exist, and Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
 - `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval.

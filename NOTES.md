@@ -22,7 +22,7 @@ These notes capture process issues observed while running this change through th
    - Follow-up: define whether labels, PR body status, or committed artifacts are authoritative for workflow state.
 
 4. Document PO-owned vs AA-owned artifact boundaries.
-   - We had to clarify that AA should not edit PO-owned proposal/spec content after `ready-for-architecture-review`.
+   - We had to clarify that AA should not edit PO-owned proposal/spec content after `architecture-review`.
    - Mechanical changes, such as ordered filename prefixes, need an explicit exception or handoff rule.
    - Follow-up: document artifact ownership and allowed edit types by workflow state.
 
@@ -71,7 +71,7 @@ These notes capture process issues observed while running this change through th
 14. Remove architecture handoff labels.
    - `architecture-planning`, `architecture-approved`, and `ready-for-implementation` made the PR timeline noisy.
    - Architecture planning and approval are already captured by committed architecture artifacts and PR review approval.
-   - Resolved: workflow docs now move from `ready-for-architecture-review` to `in-implementation` once architecture is approved and tasks are ready.
+   - Resolved: workflow docs now move from `architecture-review` to `in-implementation` once architecture is approved and tasks are ready.
 
 15. Keep workflow state in the repo.
    - Labels and comments made the PR timeline noisy when used as an event log.

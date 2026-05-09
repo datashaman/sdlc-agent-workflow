@@ -18,7 +18,7 @@ Issue: #2
 
 - [x] Update the state machine.
   - [x] Keep `draft` for issue/PR creation and product artifact preparation.
-  - [x] Move to `ready-for-architecture-review` only after committed proposal/spec artifacts exist and PO accepts them.
+  - [x] Move to `architecture-review` only after committed proposal/spec artifacts exist and PO accepts them.
   - [x] Keep `needs-product-input` as the path back to PO-owned artifact updates.
   - [x] Preserve AA/Architect work through architecture artifacts and PR review approval.
 
