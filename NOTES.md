@@ -46,6 +46,16 @@ These are the current process lessons from dogfooding the workflow.
    - Architect PR reviews should start with `Architecture review:`.
    - PO PR reviews should start with `Product review:`.
 
+10. Product review may need a PR comment fallback.
+   - GitHub does not allow the PR author to approve their own PR.
+   - When the PO Agent opens the PR on behalf of the PO, a `Product review:` PR comment can record PO acceptance and trigger automation.
+   - If a comment is used as the product gate, `state.md` should link to that comment and explain why it was used instead of a PR approval review.
+
+11. Remote agents need remote artifacts.
+   - Local-only `changes/<change-id>/` files are not enough once another agent may work remotely.
+   - The PO Agent should push the branch and open a PR before asking another agent or automation to consume the change artifacts.
+   - The issue should link to the PR, or receive a comment with the PR link, so remote agents can discover the artifacts from the issue.
+
 ## Follow-Up Automation Ideas
 
 - Validate `state.md` exists for each active change.
