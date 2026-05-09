@@ -33,6 +33,8 @@ GitHub labels are not the source of truth. Use only:
 
 The issue should link to the PR, and the PR body should link to the issue and change folder. Keep those links stable; do not use the PR body as the canonical state record.
 
+Use `.github/pull_request_template.md` as the PR body shape. It should remain an index, not a duplicate proposal, spec, task list, or state log.
+
 ## Product Artifacts
 
 The PO Agent owns `proposal.md` and `specs/`.

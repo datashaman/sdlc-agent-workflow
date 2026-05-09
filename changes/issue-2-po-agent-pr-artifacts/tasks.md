@@ -16,7 +16,7 @@ Issue: #2
   - [x] Require PO acceptance of committed product artifacts before architecture review.
   - [x] Preserve the AA clarification path through `needs-product-input`.
 
-- [x] Update the state machine.
+- [x] Update the workflow state docs.
   - [x] Keep `draft` for issue/PR creation and product artifact preparation.
   - [x] Move to `architecture-review` only after committed proposal/spec artifacts exist and PO accepts them.
   - [x] Keep `needs-product-input` as the path back to PO-owned artifact updates.

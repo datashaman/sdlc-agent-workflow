@@ -74,4 +74,5 @@ Completed work does not need a terminal workflow state. Record the PO approval r
 
 - The issue links to the PR once implementation work has a PR.
 - The PR body links to the issue and the change folder.
+- The PR body follows `.github/pull_request_template.md`.
 - `state.md` links to the current authoritative review or decision artifact for the latest transition.

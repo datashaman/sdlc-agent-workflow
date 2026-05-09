@@ -1,7 +1,11 @@
 name: Change Request
-description: Capture product intent for an agent-mediated change.
+description: Capture initial product intent for a repo-backed change.
 title: "[Change]: "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this issue for product intent and discussion history. The PO Agent will turn accepted intent into repo-backed artifacts under `changes/<change-id>/`.
   - type: textarea
     id: problem
     attributes:
@@ -29,4 +33,4 @@ body:
     id: notes
     attributes:
       label: Notes, constraints, or tradeoffs
-      description: Optional context for the PO Agent or Architect Agent.
+      description: Optional context for the PO Agent or Architect Agent. Detailed specs can be refined later in repo artifacts.

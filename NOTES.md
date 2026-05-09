@@ -35,6 +35,7 @@ These are the current process lessons from dogfooding the workflow.
 7. PR body updates should be rare.
    - The PR body is an index to issue and repo artifacts.
    - Routine state transitions should update `state.md`, not the PR body.
+   - Use `.github/pull_request_template.md` to keep PR bodies consistent.
 
 8. GitHub operation intent needs guardrails.
    - Creating new issues should be explicit.
