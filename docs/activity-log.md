@@ -26,7 +26,7 @@
    1. Architect Agent reviews the accepted committed product artifacts and recommends a technical approach to the Architect. `[AA]`
    2. Architect approves, rejects, or adjusts the architecture direction. `[Arch]`
    3. If the Architect rejects or adjusts the direction, Architect Agent revises the technical approach. `[AA]`
-   4. If the Architect Agent finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-clarification`. `[AA]`
+   4. If the Architect Agent finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-input`. `[AA]`
 
 7. Architect Agent records the approved technical approach in a separate architecture artifact on the PR. `[AA]`
 

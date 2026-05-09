@@ -29,4 +29,4 @@ Architecture and implementation artifacts must be separate from PO-owned product
 
 After PO preparation is accepted, the committed files under `changes/<change-id>/` are the canonical product artifacts for architecture review and implementation. The issue remains the trigger and source history. The PR body is an index and status summary.
 
-After architecture review begins, the Architect Agent consumes PO-owned product artifacts but does not directly edit them. If product intent needs to change, the workflow moves to `needs-product-clarification` so the PO Agent can update the proposal or specs.
+After architecture review begins, the Architect Agent consumes PO-owned product artifacts but does not directly edit them. If product intent needs to change, the workflow moves to `needs-product-input` so the PO Agent can update the proposal or specs.

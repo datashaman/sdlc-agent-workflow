@@ -14,12 +14,12 @@ Issue: #2
   - [x] Add PO Agent proposal creation after issue/PR creation.
   - [x] Add PO Agent spec/user-story creation from the proposal.
   - [x] Require PO acceptance of committed product artifacts before architecture review.
-  - [x] Preserve the AA clarification path through `needs-product-clarification`.
+  - [x] Preserve the AA clarification path through `needs-product-input`.
 
 - [x] Update the state machine.
   - [x] Keep `draft` for issue/PR creation and product artifact preparation.
   - [x] Move to `ready-for-architecture-review` only after committed proposal/spec artifacts exist and PO accepts them.
-  - [x] Keep `needs-product-clarification` as the path back to PO-owned artifact updates.
+  - [x] Keep `needs-product-input` as the path back to PO-owned artifact updates.
   - [x] Preserve `architecture-planning` and `architecture-approved` for AA/Architect work.
 
 - [x] Update agent role documentation.

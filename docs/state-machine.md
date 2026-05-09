@@ -4,29 +4,28 @@
 
 - `draft`
 - `ready-for-architecture-review`
-- `needs-product-clarification`
+- `needs-product-input`
 - `architecture-planning`
 - `architecture-approved`
 - `ready-for-implementation`
 - `in-implementation`
 - `product-review`
-- `product-changes-requested`
 - `accepted`
 
 ## Transitions
 
 ```text
 draft -> ready-for-architecture-review
-ready-for-architecture-review -> needs-product-clarification
-needs-product-clarification -> draft
+ready-for-architecture-review -> needs-product-input
+needs-product-input -> draft
 ready-for-architecture-review -> architecture-planning
-architecture-planning -> needs-product-clarification
+architecture-planning -> needs-product-input
 architecture-planning -> architecture-approved
 architecture-approved -> ready-for-implementation
 ready-for-implementation -> in-implementation
 in-implementation -> product-review
-product-review -> product-changes-requested
-product-changes-requested -> in-implementation
+product-review -> needs-product-input
+needs-product-input -> in-implementation
 product-review -> accepted
 ```
 
@@ -36,15 +35,15 @@ product-review -> accepted
 - Issue and PR are created: `draft`
 - PO Agent creates committed proposal and ordered spec artifacts: `draft`
 - PO accepts the committed proposal and specs for architecture review: `ready-for-architecture-review`
-- Architect Agent posts clarification questions: `needs-product-clarification`
+- Architect Agent posts clarification questions: `needs-product-input`
 - PO Agent updates committed proposal/spec artifacts after clarification: `draft`
 - Scope is feasible and clear: `architecture-planning`
-- Architecture planning finds product ambiguity or missing acceptance criteria: `needs-product-clarification`
+- Architecture planning finds product ambiguity or missing acceptance criteria: `needs-product-input`
 - Architect approves direction: `architecture-approved`
 - Tasks are ready: `ready-for-implementation`
 - Implementation starts: `in-implementation`
 - Architect approves implementation: `product-review`
-- PO rejects delivered behavior: `product-changes-requested`
+- PO rejects delivered behavior: `needs-product-input`
 - PO approves delivered behavior: `accepted`
 - Work is merged or closed: native GitHub merged/closed state
 
@@ -52,7 +51,7 @@ product-review -> accepted
 
 - `draft`: issue creation, PR or branch creation, product clarification, and PO-owned proposal/spec preparation may happen here.
 - `ready-for-architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
-- `needs-product-clarification`: returns control to the PO Agent so PO-owned proposal and spec artifacts can be updated before another architecture review attempt.
+- `needs-product-input`: returns control to the PO Agent or PO when product intent, acceptance criteria, or delivered behavior needs clarification or change.
 - `architecture-planning`: Architect Agent reviews accepted product artifacts and records architecture outputs separately from PO-owned proposal/spec files.
 - `architecture-approved`: Architect has approved the technical direction and the work can be broken into implementation tasks.
 - `in-implementation`: Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.

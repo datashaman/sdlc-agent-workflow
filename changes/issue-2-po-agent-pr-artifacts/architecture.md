@@ -15,7 +15,7 @@ The accepted product artifacts under `changes/issue-2-po-agent-pr-artifacts/` ar
 - The PR description is an index and status summary, not the product source of truth.
 - The PO Agent owns proposal and product spec/user-story artifacts.
 - The Architect Agent must not directly edit PO-owned proposal or spec artifacts after the work is `ready-for-architecture-review`.
-- If architecture review finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-clarification`.
+- If architecture review finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-input`.
 - Architecture outputs must be recorded separately from PO-owned product artifacts.
 - Spec/user-story artifacts must have a deterministic reading order.
 

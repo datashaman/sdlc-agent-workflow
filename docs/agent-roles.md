@@ -30,7 +30,7 @@ Responsibilities:
 - record technical changes requested by the Architect through GitHub PR review comments or requested-changes review state
 - merge or close the work after product approval and required checks pass
 
-The Architect Agent must not directly edit PO-owned proposal or spec artifacts after architecture review begins. If product ambiguity, infeasibility, or missing acceptance criteria are found, the workflow moves to `needs-product-clarification` so the PO Agent can update those artifacts.
+The Architect Agent must not directly edit PO-owned proposal or spec artifacts after architecture review begins. If product ambiguity, infeasibility, or missing acceptance criteria are found, the workflow moves to `needs-product-input` so the PO Agent can update those artifacts.
 
 ## Implementation Agent `[IA]`
 
