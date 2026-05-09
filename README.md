@@ -15,11 +15,10 @@ The workflow assumes:
 - `PA`: PO Agent
 - `Arch`: human Architect
 - `AA`: Architect Agent
-- `A`: Implementation Agent
+- `IA`: Implementation Agent
 
 ## Docs
 
 - [Activity Log](docs/activity-log.md)
 - [State Machine](docs/state-machine.md)
 - [Agent Roles](docs/agent-roles.md)
-
