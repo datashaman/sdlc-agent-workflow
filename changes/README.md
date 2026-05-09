@@ -4,6 +4,20 @@ Each in-progress workflow change must keep durable workflow artifacts under `cha
 
 The change ID should be stable and readable. Prefer an issue-number prefix plus a short slug, such as `issue-2-po-agent-pr-artifacts`.
 
+## Required Workflow Artifact
+
+Every change folder must include `state.md`.
+
+`state.md` is the canonical workflow state for the change. It should include:
+
+- current workflow state
+- last state change date
+- actor who moved the state
+- short reason or decision record
+- links to the relevant issue, PR, review, or committed artifact
+
+GitHub labels may mirror state for queue visibility, but they are not the source of truth.
+
 ## Required Product Artifacts
 
 The PO Agent owns these files throughout the change:
@@ -27,6 +41,6 @@ Architecture and implementation artifacts must be separate from PO-owned product
 - `tasks.md`: Architect Agent-owned implementation checklist.
 - optional review or dogfood notes, when useful for follow-up work.
 
-After PO preparation is accepted, the committed files under `changes/<change-id>/` are the canonical product artifacts for architecture review and implementation. The issue remains the trigger and source history. The PR body is an index and status summary.
+After PO preparation is accepted, the committed files under `changes/<change-id>/` are the canonical product artifacts for architecture review and implementation. `state.md` is the canonical workflow state. The issue remains the trigger and source history. The PR body is an index and status summary.
 
 After architecture review begins, the Architect Agent consumes PO-owned product artifacts but does not directly edit them. If product intent needs to change, the workflow moves to `needs-product-input` so the PO Agent can update the proposal or specs.

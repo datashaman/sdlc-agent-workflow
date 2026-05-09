@@ -20,7 +20,7 @@ Issue: #2
   - [x] Keep `draft` for issue/PR creation and product artifact preparation.
   - [x] Move to `ready-for-architecture-review` only after committed proposal/spec artifacts exist and PO accepts them.
   - [x] Keep `needs-product-input` as the path back to PO-owned artifact updates.
-  - [x] Preserve `architecture-planning` and `architecture-approved` for AA/Architect work.
+  - [x] Preserve AA/Architect work through architecture artifacts and PR review approval.
 
 - [x] Update agent role documentation.
   - [x] Make PO Agent responsible for creating and maintaining proposal/spec artifacts.

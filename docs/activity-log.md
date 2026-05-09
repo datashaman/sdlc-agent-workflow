@@ -30,7 +30,7 @@
 
 7. Architect Agent records the approved technical approach in a separate architecture artifact on the PR. `[AA]`
 
-8. Architect Agent breaks the work into implementation tasks. `[AA]`
+8. Architect Agent breaks the work into implementation tasks, then updates `changes/<change-id>/state.md` to `in-implementation`. `[AA]`
 
 9. Implementation and review loop, until both GitHub PR technical review and product review pass:
 
@@ -48,6 +48,6 @@
 
 10. If the delivered behavior is accepted, PO approves the outcome. `[PO]`
 
-11. PO Agent records the approval in the issue or PR. `[PA]`
+11. PO Agent records the approval in `changes/<change-id>/state.md` and may summarize it on the issue or PR if useful. `[PA]`
 
 12. Architect Agent merges the PR and closes the issue using native GitHub merged/closed state. `[AA]`

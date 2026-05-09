@@ -6,6 +6,7 @@ Responsibilities:
 
 - create the issue from PO-provided intent
 - open or maintain the draft PR / working branch
+- maintain `changes/<change-id>/state.md` for PO-owned state transitions
 - create and maintain `changes/<change-id>/proposal.md` from the issue body and PO clarifications
 - create and maintain ordered `changes/<change-id>/specs/NN-*.md` specs or user stories
 - keep product direction, acceptance criteria, and requested behavior changes reflected in PO-owned proposal/spec artifacts
@@ -26,6 +27,7 @@ Responsibilities:
 - revise the technical approach when the Architect adjusts direction
 - record approved technical direction in a separate architecture artifact on the PR
 - break the work into implementation tasks
+- maintain `changes/<change-id>/state.md` for architecture and implementation handoff transitions
 - review implementation quality and architecture fit
 - record technical changes requested by the Architect through GitHub PR review comments or requested-changes review state
 - merge or close the work after product approval and required checks pass

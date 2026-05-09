@@ -5,9 +5,6 @@
 - `draft`
 - `ready-for-architecture-review`
 - `needs-product-input`
-- `architecture-planning`
-- `architecture-approved`
-- `ready-for-implementation`
 - `in-implementation`
 - `product-review`
 - `accepted`
@@ -18,11 +15,7 @@
 draft -> ready-for-architecture-review
 ready-for-architecture-review -> needs-product-input
 needs-product-input -> draft
-ready-for-architecture-review -> architecture-planning
-architecture-planning -> needs-product-input
-architecture-planning -> architecture-approved
-architecture-approved -> ready-for-implementation
-ready-for-implementation -> in-implementation
+ready-for-architecture-review -> in-implementation
 in-implementation -> product-review
 product-review -> needs-product-input
 needs-product-input -> in-implementation
@@ -37,11 +30,8 @@ product-review -> accepted
 - PO accepts the committed proposal and specs for architecture review: `ready-for-architecture-review`
 - Architect Agent posts clarification questions: `needs-product-input`
 - PO Agent updates committed proposal/spec artifacts after clarification: `draft`
-- Scope is feasible and clear: `architecture-planning`
-- Architecture planning finds product ambiguity or missing acceptance criteria: `needs-product-input`
-- Architect approves direction: `architecture-approved`
-- Tasks are ready: `ready-for-implementation`
-- Implementation starts: `in-implementation`
+- Architecture review finds product ambiguity or missing acceptance criteria: `needs-product-input`
+- Architect approves direction and implementation tasks are ready: `in-implementation`
 - Architect approves implementation: `product-review`
 - PO rejects delivered behavior: `needs-product-input`
 - PO approves delivered behavior: `accepted`
@@ -52,20 +42,21 @@ product-review -> accepted
 - `draft`: issue creation, PR or branch creation, product clarification, and PO-owned proposal/spec preparation may happen here.
 - `ready-for-architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
 - `needs-product-input`: returns control to the PO Agent or PO when product intent, acceptance criteria, or delivered behavior needs clarification or change.
-- `architecture-planning`: Architect Agent reviews accepted product artifacts and records architecture outputs separately from PO-owned proposal/spec files.
-- `architecture-approved`: Architect has approved the technical direction and the work can be broken into implementation tasks.
-- `in-implementation`: Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
+- `in-implementation`: Architect has approved the technical direction, implementation tasks exist, and Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
 - `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval.
 - `accepted`: PO has accepted the delivered behavior. After this state, the PR should be merged and the issue should be closed using native GitHub state rather than a final status label.
 
-## GitHub State And Labels
+## Repo State And GitHub Labels
 
-Workflow labels should represent active workflow states that GitHub does not already model.
+The canonical workflow state lives in `changes/<change-id>/state.md`.
+
+GitHub labels are optional queue and attention aids. They should not be used as the durable state log.
 
 - Treat absence of a workflow label on an open change issue as `draft`.
 - Do not create or apply a `draft` workflow label.
 - Use GitHub's native draft PR state for draft PRs. Do not apply a `draft` label to PRs.
 - Use GitHub's native PR review state for technical review, approval, and requested implementation changes. Do not create workflow labels for `technical-review` or `technical-changes-requested`.
+- Use committed architecture artifacts and PR review approval for architecture planning and approval. Do not create workflow labels for `architecture-planning`, `architecture-approved`, or `ready-for-implementation`.
 - Use GitHub's native merged PR state and closed issue state for completed work.
 - Do not use a `merged-closed` workflow label.
-- Keep the PR body as an index and status summary. When a workflow label changes, update the PR body status in the same step.
+- Keep the PR body as an index and status summary. Avoid commenting or relabeling for routine state transitions when updating `state.md` is sufficient.

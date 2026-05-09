@@ -41,7 +41,7 @@ These notes capture process issues observed while running this change through th
 
 8. Decide whether PR body updates are required for every state transition.
    - The PR body is supposed to be an index/status summary, but state changes happened through issue labels first.
-   - Resolved: workflow docs now say to update the PR body status in the same step as workflow label changes.
+   - Resolved: workflow docs now make `state.md` the canonical state record and avoid PR body updates for routine transitions.
 
 9. Rename `product-acceptance` to `product-review`.
    - `product-acceptance` sounds like PO acceptance has already happened.
@@ -67,3 +67,13 @@ These notes capture process issues observed while running this change through th
    - `needs-product-clarification` and `product-changes-requested` both mean PO/PO Agent input is needed.
    - The difference was phase-specific, but the label did not need to encode that branch.
    - Resolved: workflow docs now use a single `needs-product-input` state, returning to `draft` before architecture review or `in-implementation` after product review depending on the current phase.
+
+14. Remove architecture handoff labels.
+   - `architecture-planning`, `architecture-approved`, and `ready-for-implementation` made the PR timeline noisy.
+   - Architecture planning and approval are already captured by committed architecture artifacts and PR review approval.
+   - Resolved: workflow docs now move from `ready-for-architecture-review` to `in-implementation` once architecture is approved and tasks are ready.
+
+15. Keep workflow state in the repo.
+   - Labels and comments made the PR timeline noisy when used as an event log.
+   - Committed change artifacts are already the durable source of truth.
+   - Resolved: workflow docs now require `changes/<change-id>/state.md` as the canonical workflow state, with GitHub labels treated as optional queue/attention aids.
