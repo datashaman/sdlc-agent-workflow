@@ -16,7 +16,7 @@ Architecture review should begin only after those repo-backed artifacts exist on
 
 ## Scope
 
-This change updates the workflow documentation so PO Agent proposal/spec creation is an explicit step between issue creation and architecture review.
+This PR should ultimately implement issue #2. It currently contains the PO Agent proposal/spec draft for the change. After product clarification and architecture approval, implementation commits should update the workflow documentation in the same PR.
 
 The implementation should describe:
 
@@ -24,6 +24,7 @@ The implementation should describe:
 - where specs or user stories live in the repo
 - how those artifacts are created from the issue body
 - how architecture review uses those artifacts as the primary product context
+- how issue text, issue comments, PR descriptions, and committed artifacts relate when they diverge
 
 ## Out Of Scope
 
@@ -34,3 +35,18 @@ The implementation should describe:
 ## Product Decision
 
 The repository is the source of workflow state for product artifacts. PR descriptions and comments may summarize state, but proposal and spec artifacts should be committed files.
+
+For a change in progress, the source of truth is stage-specific:
+
+- the issue is the trigger and initial source material
+- issue comments capture clarification requests and PO responses
+- committed files under `changes/<change-id>/` are the canonical product artifacts once created
+- the PR description is an index and status summary, not the canonical product artifact
+
+If issue text or comments diverge from committed proposal/spec files, the committed files win for architecture review and implementation. Comments can request or record a product decision, but the PO Agent must update the committed artifacts before that decision becomes workflow state.
+
+The issue template is intentionally out of scope for this change. This change defines the repo-backed proposal/spec flow first; a later change can align the issue template once the artifact workflow is accepted.
+
+## Readiness
+
+This proposal is still in `draft` while the PO Agent clarifies source-of-truth and scope questions. It should move to `ready-for-architecture-review` only after the PO accepts these committed proposal/spec artifacts as ready for architecture review.
