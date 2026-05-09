@@ -1,5 +1,7 @@
 # Agent Roles
 
+For copy-paste starting instructions for each represented agent, see [Agent Prompts](agent-prompts.md).
+
 ## PO Agent `[PA]`
 
 Responsibilities:
