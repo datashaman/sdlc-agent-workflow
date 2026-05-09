@@ -57,7 +57,7 @@ Use native GitHub PR state and reviews for review signaling. Use labels only for
 - Use GitHub's native ready-for-review PR state when the PR is ready for Architect or PO review.
 - Use GitHub's native PR review state for Architect technical review, PO product review, approvals, and requested changes.
 - Use committed artifacts and `state.md` for exact workflow state, including `architecture-review`, `implementing`, `product-review`, and `accepted`.
-- Use the `implementing` label while implementation work is actively underway.
-- Use the `needs-product-input` label when PO or PO Agent input is blocking progress.
+- Use the blue `implementing` label while implementation work is actively underway.
+- Use the orange `needs-product-input` label when PO or PO Agent input is blocking progress.
 - Use GitHub's native merged PR state and closed issue state for completed work.
 - Keep the PR body as an index and status summary. Avoid commenting or relabeling for routine state transitions when updating `state.md` is sufficient.
