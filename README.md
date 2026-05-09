@@ -31,6 +31,6 @@ For each change, source of truth is stage-specific:
 
 ## Change Artifacts
 
-Each change may keep its proposal, specs, architecture review, and implementation planning artifacts together under `changes/`.
+Each in-progress workflow change keeps its proposal, specs, architecture review, and implementation planning artifacts together under `changes/`.
 
 - [Changes](changes/)

@@ -16,9 +16,9 @@ Architecture review should begin only after those repo-backed artifacts exist on
 
 ## Scope
 
-This PR should ultimately implement issue #2. It currently contains the PO Agent proposal/spec draft for the change. After product clarification and architecture approval, implementation commits should update the workflow documentation in the same PR.
+This PR implements issue #2 by updating the workflow documentation to require repo-backed PO Agent proposal and spec artifacts before architecture review.
 
-The implementation should describe:
+The delivered workflow describes:
 
 - where proposal artifacts live in the repo
 - where specs or user stories live in the repo
@@ -49,4 +49,4 @@ The issue template is intentionally out of scope for this change. This change de
 
 ## Readiness
 
-This proposal and its specs are accepted as ready for architecture review. The workflow state is `ready-for-architecture-review`.
+This proposal and its specs were accepted for architecture review, implemented in the workflow docs, and returned for product acceptance.

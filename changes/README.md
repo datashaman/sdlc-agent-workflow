@@ -1,6 +1,6 @@
 # Change Artifacts
 
-Each in-progress change may keep durable workflow artifacts under `changes/<change-id>/`.
+Each in-progress workflow change must keep durable workflow artifacts under `changes/<change-id>/`.
 
 The change ID should be stable and readable. Prefer an issue-number prefix plus a short slug, such as `issue-2-po-agent-pr-artifacts`.
 
