@@ -9,7 +9,7 @@ Architecture review starts from proposal and specs committed on the PR
 ## Narrative
 
 - **As a:** Architect Agent reviewing a proposed change
-- **I want:** proposal and spec artifacts to be present as committed files before technical review begins
+- **I want:** proposal and spec artifacts to be present as committed files before architecture review begins
 - **so that:** architectural feedback is grounded in formalized product intent rather than an informal issue description alone
 
 ## Acceptance Criteria

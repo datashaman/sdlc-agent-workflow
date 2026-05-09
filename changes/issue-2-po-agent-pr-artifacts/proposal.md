@@ -49,4 +49,4 @@ The issue template is intentionally out of scope for this change. This change de
 
 ## Readiness
 
-This proposal is still in `draft` while the PO Agent clarifies source-of-truth and scope questions. It should move to `ready-for-architecture-review` only after the PO accepts these committed proposal/spec artifacts as ready for architecture review.
+This proposal and its specs are accepted as ready for architecture review. The workflow state is `ready-for-architecture-review`.
