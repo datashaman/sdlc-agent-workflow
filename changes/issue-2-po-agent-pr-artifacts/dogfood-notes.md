@@ -42,3 +42,8 @@ These notes capture process issues observed while running this change through th
 8. Decide whether PR body updates are required for every state transition.
    - The PR body is supposed to be an index/status summary, but state changes happened through issue labels first.
    - Follow-up: define whether agents must update PR body status when labels change, or whether labels alone are sufficient.
+
+9. Rename `product-acceptance` to `product-review`.
+   - `product-acceptance` sounds like PO acceptance has already happened.
+   - In practice, the state means the implementation is waiting for PO product review after technical approval.
+   - Follow-up: rename the state and label to `product-review` so it matches `technical-review`, then reserve `accepted` for actual PO acceptance.
