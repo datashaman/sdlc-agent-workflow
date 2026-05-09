@@ -17,10 +17,13 @@ The accepted product artifacts under `changes/issue-2-po-agent-pr-artifacts/` ar
 - The Architect Agent must not directly edit PO-owned proposal or spec artifacts after the work is `ready-for-architecture-review`.
 - If architecture review finds product ambiguity, infeasibility, or missing acceptance criteria, the workflow moves to `needs-product-clarification`.
 - Architecture outputs must be recorded separately from PO-owned product artifacts.
+- Spec/user-story artifacts must have a deterministic reading order.
 
 ## Implementation Approach
 
 1. Add reusable artifact-structure documentation under `changes/`.
+   - Define how specs are ordered, preferably with numeric filename prefixes such as `01-repo-backed-proposal.md`.
+   - If numeric filenames are not used, define an explicit ordered index in the change folder.
 2. Update `docs/activity-log.md` so PO Agent proposal and spec creation occurs after issue/PR creation and before architecture review.
 3. Update `docs/state-machine.md` so `ready-for-architecture-review` requires accepted committed product artifacts, not only issue/PR creation.
 4. Update `docs/agent-roles.md` to define PO Agent ownership of proposal/spec artifacts and Architect Agent ownership of architecture outputs.
@@ -31,4 +34,4 @@ The accepted product artifacts under `changes/issue-2-po-agent-pr-artifacts/` ar
 
 ## Acceptance Check
 
-The implementation is architecturally complete when the workflow docs consistently describe the same artifact ownership, state transitions, and source-of-truth precedence as the accepted proposal/spec artifacts.
+The implementation is architecturally complete when the workflow docs consistently describe the same artifact ownership, state transitions, source-of-truth precedence, and deterministic spec ordering as the accepted proposal/spec artifacts.
