@@ -11,10 +11,9 @@
 - `in-implementation`
 - `technical-review`
 - `technical-changes-requested`
-- `product-acceptance`
+- `product-review`
 - `product-changes-requested`
 - `accepted`
-- `merged-closed`
 
 ## Transitions
 
@@ -30,11 +29,10 @@ ready-for-implementation -> in-implementation
 in-implementation -> technical-review
 technical-review -> technical-changes-requested
 technical-changes-requested -> in-implementation
-technical-review -> product-acceptance
-product-acceptance -> product-changes-requested
+technical-review -> product-review
+product-review -> product-changes-requested
 product-changes-requested -> in-implementation
-product-acceptance -> accepted
-accepted -> merged-closed
+product-review -> accepted
 ```
 
 ## Event Triggers
@@ -52,10 +50,10 @@ accepted -> merged-closed
 - Implementation starts: `in-implementation`
 - Implementation is ready for review: `technical-review`
 - Architect rejects implementation: `technical-changes-requested`
-- Architect approves implementation: `product-acceptance`
+- Architect approves implementation: `product-review`
 - PO rejects delivered behavior: `product-changes-requested`
 - PO approves delivered behavior: `accepted`
-- Work is merged or closed: `merged-closed`
+- Work is merged or closed: native GitHub merged/closed state
 
 ## State Requirements
 
@@ -64,3 +62,14 @@ accepted -> merged-closed
 - `needs-product-clarification`: returns control to the PO Agent so PO-owned proposal and spec artifacts can be updated before another architecture review attempt.
 - `architecture-planning`: Architect Agent reviews accepted product artifacts and records architecture outputs separately from PO-owned proposal/spec files.
 - `architecture-approved`: Architect has approved the technical direction and the work can be broken into implementation tasks.
+- `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval.
+- `accepted`: PO has accepted the delivered behavior. After this state, the PR should be merged and the issue should be closed using native GitHub state rather than a final status label.
+
+## GitHub State And Labels
+
+Workflow labels should represent states that GitHub does not already model.
+
+- Use GitHub's native draft PR state for draft PRs. Do not apply a `draft` label to PRs.
+- Use GitHub's native merged PR state and closed issue state for completed work.
+- Do not use a `merged-closed` workflow label.
+- Keep the PR body as an index and status summary. When a workflow label changes, update the PR body status in the same step.

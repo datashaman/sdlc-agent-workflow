@@ -49,4 +49,4 @@ The issue template is intentionally out of scope for this change. This change de
 
 ## Readiness
 
-This proposal and its specs were accepted for architecture review, implemented in the workflow docs, and returned for product acceptance.
+This proposal and its specs were accepted for architecture review, implemented in the workflow docs, and returned for product review.

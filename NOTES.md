@@ -41,19 +41,19 @@ These notes capture process issues observed while running this change through th
 
 8. Decide whether PR body updates are required for every state transition.
    - The PR body is supposed to be an index/status summary, but state changes happened through issue labels first.
-   - Follow-up: define whether agents must update PR body status when labels change, or whether labels alone are sufficient.
+   - Resolved: workflow docs now say to update the PR body status in the same step as workflow label changes.
 
 9. Rename `product-acceptance` to `product-review`.
    - `product-acceptance` sounds like PO acceptance has already happened.
    - In practice, the state means the implementation is waiting for PO product review after technical approval.
-   - Follow-up: rename the state and label to `product-review` so it matches `technical-review`, then reserve `accepted` for actual PO acceptance.
+   - Resolved: workflow docs now use `product-review`, matching `technical-review`, and reserve `accepted` for actual PO acceptance.
 
 10. Do not duplicate native GitHub states as labels.
    - PRs already have a native draft state, so a `draft` label is redundant for PRs.
    - Issues already have open/closed state, and PRs already have open/closed/merged state.
-   - Follow-up: define which workflow states need labels and which should use native GitHub state instead.
+   - Resolved: workflow docs now say labels should represent states GitHub does not already model, and draft PRs should use GitHub's native draft state.
 
 11. Remove `merged-closed` as a workflow label.
    - Issues close and PRs merge through native GitHub state.
    - A `merged-closed` label duplicates native state and creates another state signal that can drift.
-   - Follow-up: remove the label from the state machine or reserve final workflow completion for native closed/merged state.
+   - Resolved: workflow docs now use native GitHub merged/closed state instead of a final `merged-closed` workflow label.
