@@ -22,3 +22,8 @@ The workflow assumes:
 - [Activity Log](docs/activity-log.md)
 - [State Machine](docs/state-machine.md)
 - [Agent Roles](docs/agent-roles.md)
+
+## Workflow Artifacts
+
+- [Proposals](proposals/)
+- [Specs](specs/)
