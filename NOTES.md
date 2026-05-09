@@ -77,3 +77,7 @@ These notes capture process issues observed while running this change through th
    - Labels and comments made the PR timeline noisy when used as an event log.
    - Committed change artifacts are already the durable source of truth.
    - Resolved: workflow docs now require `changes/<change-id>/state.md` as the canonical workflow state, with GitHub labels treated as optional queue/attention aids.
+
+16. Use GitHub PR reviews for product review.
+   - Product review does not need to be code review, but GitHub PR review state can still capture product approval or requested changes.
+   - Resolved: workflow docs now say PO product approval uses PR review approval, and PO product rejection uses a requested-changes PR review.

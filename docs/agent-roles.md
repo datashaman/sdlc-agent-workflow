@@ -14,8 +14,8 @@ Responsibilities:
 - ask the PO for clarification when context is insufficient
 - move work to architecture review only after the PO accepts the committed proposal and spec artifacts
 - check delivered behavior against acceptance criteria
-- summarize the outcome for PO review
-- record product approval
+- summarize the outcome for PO review in the PR review body
+- record product approval from native GitHub PR review state in `changes/<change-id>/state.md`
 
 ## Architect Agent `[AA]`
 
@@ -41,4 +41,4 @@ Responsibilities:
 - implement assigned tasks
 - update progress in the PR
 - fix technical changes requested through GitHub PR review
-- fix product behavior changes requested after PO review
+- fix product behavior changes requested through GitHub PR review

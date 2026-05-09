@@ -32,7 +32,7 @@
 
 8. Architect Agent breaks the work into implementation tasks, then updates `changes/<change-id>/state.md` to `implementing`. `[AA]`
 
-9. Implementation and review loop, until both GitHub PR technical review and product review pass:
+9. Implementation and review loop, until both GitHub PR technical review and GitHub PR product review pass:
 
    1. Implementation Agent implements the tasks. `[IA]`
    2. Implementation Agent updates progress in the PR. `[IA]`
@@ -41,13 +41,13 @@
    5. If Architect rejects the implementation, Architect Agent records required technical changes through GitHub PR review comments or requested-changes review state. `[AA]`
    6. If technical changes are required, Implementation Agent fixes the implementation and the GitHub PR review cycle restarts. `[IA]`
    7. PO Agent checks the delivered behavior against the acceptance criteria during product review. `[PA]`
-   8. PO Agent summarizes the outcome for the PO. `[PA]`
-   9. PO reviews the delivered behavior. `[PO]`
-   10. If PO rejects the delivered behavior, PO Agent records requested behavior changes in the issue or PR. `[PA]`
+   8. PO Agent summarizes the outcome for the PO in the PR review body. `[PA]`
+   9. PO reviews the delivered behavior using a GitHub PR review. `[PO]`
+   10. If PO rejects the delivered behavior, PO uses a GitHub requested-changes review and PO Agent updates `changes/<change-id>/state.md` to `needs-product-input`. `[PO|PA]`
    11. If behavior changes are required, Implementation Agent fixes the implementation and the implementation loop restarts. `[IA]`
 
-10. If the delivered behavior is accepted, PO approves the outcome. `[PO]`
+10. If the delivered behavior is accepted, PO approves the PR review. `[PO]`
 
-11. PO Agent records the approval in `changes/<change-id>/state.md` and may summarize it on the issue or PR if useful. `[PA]`
+11. PO Agent records the approval in `changes/<change-id>/state.md`. `[PA]`
 
 12. Architect Agent merges the PR and closes the issue using native GitHub merged/closed state. `[AA]`

@@ -43,7 +43,7 @@ product-review -> accepted
 - `architecture-review`: requires committed `changes/<change-id>/proposal.md`, ordered `changes/<change-id>/specs/NN-*.md` artifacts, and PO acceptance of those artifacts.
 - `needs-product-input`: returns control to the PO Agent or PO when product intent, acceptance criteria, or delivered behavior needs clarification or change.
 - `implementing`: Architect has approved the technical direction, implementation tasks exist, and Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
-- `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval.
+- `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval. Approval or rejection should use native GitHub PR review state.
 - `accepted`: PO has accepted the delivered behavior. After this state, the PR should be merged and the issue should be closed using native GitHub state rather than a final status label.
 
 ## Repo State And GitHub Labels
@@ -56,6 +56,7 @@ GitHub labels are optional queue and attention aids. They should not be used as 
 - Do not create or apply a `draft` workflow label.
 - Use GitHub's native draft PR state for draft PRs. Do not apply a `draft` label to PRs.
 - Use GitHub's native PR review state for technical review, approval, and requested implementation changes. Do not create workflow labels for `technical-review` or `technical-changes-requested`.
+- Use GitHub's native PR review state for product review approval and requested product changes. `product-review` means product review is requested; PO approval moves the workflow to `accepted`, and PO requested changes move it to `needs-product-input`.
 - Use committed architecture artifacts and PR review approval for architecture planning and approval. Do not create workflow labels for `architecture-planning`, `architecture-approved`, or `ready-for-implementation`.
 - Use GitHub's native merged PR state and closed issue state for completed work.
 - Do not use a `merged-closed` workflow label.
