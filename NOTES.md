@@ -61,17 +61,17 @@ These notes capture process issues observed while running this change through th
 12. Remove technical review labels in favor of native PR review state.
    - GitHub PR reviews already model technical approval, requested changes, and review discussion.
    - `technical-review` and `technical-changes-requested` labels duplicate PR review state and can drift from the actual PR review outcome.
-   - Resolved: workflow docs now keep the workflow in `in-implementation` while technical review cycles through native GitHub PR review state, then move to `product-review` after Architect technical approval.
+   - Resolved: workflow docs now keep the workflow in `implementing` while technical review cycles through native GitHub PR review state, then move to `product-review` after Architect technical approval.
 
 13. Collapse product-input labels.
    - `needs-product-clarification` and `product-changes-requested` both mean PO/PO Agent input is needed.
    - The difference was phase-specific, but the label did not need to encode that branch.
-   - Resolved: workflow docs now use a single `needs-product-input` state, returning to `draft` before architecture review or `in-implementation` after product review depending on the current phase.
+   - Resolved: workflow docs now use a single `needs-product-input` state, returning to `draft` before architecture review or `implementing` after product review depending on the current phase.
 
 14. Remove architecture handoff labels.
    - `architecture-planning`, `architecture-approved`, and `ready-for-implementation` made the PR timeline noisy.
    - Architecture planning and approval are already captured by committed architecture artifacts and PR review approval.
-   - Resolved: workflow docs now move from `architecture-review` to `in-implementation` once architecture is approved and tasks are ready.
+   - Resolved: workflow docs now move from `architecture-review` to `implementing` once architecture is approved and tasks are ready.
 
 15. Keep workflow state in the repo.
    - Labels and comments made the PR timeline noisy when used as an event log.

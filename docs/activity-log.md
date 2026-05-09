@@ -30,7 +30,7 @@
 
 7. Architect Agent records the approved technical approach in a separate architecture artifact on the PR. `[AA]`
 
-8. Architect Agent breaks the work into implementation tasks, then updates `changes/<change-id>/state.md` to `in-implementation`. `[AA]`
+8. Architect Agent breaks the work into implementation tasks, then updates `changes/<change-id>/state.md` to `implementing`. `[AA]`
 
 9. Implementation and review loop, until both GitHub PR technical review and product review pass:
 
