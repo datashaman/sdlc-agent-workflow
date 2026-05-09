@@ -4,10 +4,16 @@ This repository captures a lightweight two-person SDLC workflow where a Product 
 
 The workflow assumes:
 
-- product intent lives on the issue
+- product intent starts on the issue
 - implementation and review happen on the PR
 - agents communicate through issue/PR artifacts, not direct private handoffs
 - humans remain approval gates for product and architecture decisions
+
+For each change, source of truth is stage-specific:
+
+- before proposal creation, the issue is the trigger and initial product source material
+- after PO preparation, committed files under `changes/<change-id>/` are the canonical product artifacts
+- the PR body is an index and status summary, not the canonical product artifact
 
 ## Core Roles
 
@@ -22,3 +28,9 @@ The workflow assumes:
 - [Activity Log](docs/activity-log.md)
 - [State Machine](docs/state-machine.md)
 - [Agent Roles](docs/agent-roles.md)
+
+## Change Artifacts
+
+Each in-progress workflow change keeps its proposal, specs, architecture review, and implementation planning artifacts together under `changes/`.
+
+- [Changes](changes/)
