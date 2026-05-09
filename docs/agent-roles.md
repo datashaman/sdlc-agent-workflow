@@ -27,7 +27,7 @@ Responsibilities:
 - record technical changes requested by the Architect
 - merge or close the work after product approval and required checks pass
 
-## Implementation Agent `[A]`
+## Implementation Agent `[IA]`
 
 Responsibilities:
 
@@ -35,4 +35,3 @@ Responsibilities:
 - update progress in the PR
 - fix technical changes requested by the Architect / Architect Agent
 - fix product behavior changes requested after PO review
-
