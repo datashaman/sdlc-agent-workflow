@@ -15,9 +15,7 @@ GitHub labels, PR titles, PR bodies, issue comments, and timeline events are not
 - `draft`: product intent and repo-backed product artifacts are still being prepared.
 - `architecture-review`: committed product artifacts are ready for Architect review.
 - `needs-product-input`: progress is blocked on PO or PO Agent clarification or product change.
-- `implementing`: implementation work or technical review is active.
-- `product-review`: technically approved work is ready for PO product review.
-- `accepted`: PO has accepted the delivered behavior.
+- `implementing`: implementation work, technical review, or product review is active.
 
 ## Transitions
 
@@ -26,11 +24,9 @@ draft -> architecture-review
 architecture-review -> needs-product-input
 needs-product-input -> draft
 architecture-review -> implementing
-implementing -> product-review
-product-review -> needs-product-input
+implementing -> needs-product-input
 needs-product-input -> implementing
-product-review -> accepted
-accepted -> native GitHub merge and issue close
+implementing -> native GitHub merge and issue close
 ```
 
 ## GitHub Signals
@@ -64,3 +60,18 @@ Do not add labels for states already represented by `state.md`, PR draft/ready s
 - links to relevant issue, PR, review, or committed artifact
 
 Routine transitions should update `state.md`. Avoid timeline noise from comments, label churn, or PR body edits when a state-file update is sufficient.
+
+Completed work does not need a terminal workflow state. Record the PO approval review, merged PR, and closed issue links in `state.md`; GitHub remains authoritative for merge and close state.
+
+## State Ownership
+
+- PO Agent owns transitions into `draft`, `architecture-review`, and product-input returns caused by product clarification.
+- Architect Agent owns transitions into `implementing` and product-input returns caused by architecture concerns.
+- PO Agent records PO review outcomes from PR reviews.
+- Architect Agent records merge/close completion links after the PR is merged and issue is closed.
+
+## Issue And PR Links
+
+- The issue links to the PR once implementation work has a PR.
+- The PR body links to the issue and the change folder.
+- `state.md` links to the current authoritative review or decision artifact for the latest transition.

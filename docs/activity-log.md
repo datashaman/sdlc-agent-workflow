@@ -34,12 +34,12 @@ This is the expected workflow for a change. The durable record is the change fol
 
 14. If technical changes are requested, Implementation Agent addresses them and the PR review cycle repeats while `state.md` remains `implementing`. `[IA]`
 
-15. After technical approval, PO Agent updates `state.md` to `product-review`, removes `implementing`, and summarizes product-review context for the PO if needed. `[PA]`
+15. After technical approval, PO Agent summarizes product review context for the PO if needed. `state.md` remains `implementing` until the PR is approved and merged. `[PA]`
 
 16. PO approves or requests product changes through a GitHub PR review. `[PO]`
 
 17. If product changes are requested, PO Agent updates `state.md` to `needs-product-input` or `implementing`, depending on whether requirements or implementation need to change. `[PA]`
 
-18. After PO approval, PO Agent updates `state.md` to `accepted`. `[PA]`
+18. After PO approval, PO Agent records the review link in `state.md`. `[PA]`
 
 19. Architect Agent merges the PR and closes the issue using native GitHub state. `[AA]`

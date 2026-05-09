@@ -14,6 +14,8 @@ Every change folder must include:
 - `architecture.md`: Architect Agent-owned technical approach and constraints.
 - `tasks.md`: Architect Agent-owned implementation checklist.
 
+Start from the templates in `changes/templates/` when creating a new change.
+
 ## State
 
 `state.md` is the source of truth for workflow state. It should include:
@@ -28,6 +30,8 @@ GitHub labels are not the source of truth. Use only:
 
 - `implementing` when implementation work is actively underway
 - `needs-product-input` when PO or PO Agent input is blocking progress
+
+The issue should link to the PR, and the PR body should link to the issue and change folder. Keep those links stable; do not use the PR body as the canonical state record.
 
 ## Product Artifacts
 

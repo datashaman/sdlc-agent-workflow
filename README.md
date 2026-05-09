@@ -10,6 +10,7 @@ The current approach is repo-first:
 - PR draft/ready state signals review readiness
 - PR reviews capture Architect technical approval and PO product approval
 - labels are limited to active visual signals
+- GitHub merged PR and closed issue state capture completion
 
 ## Core Roles
 
@@ -26,7 +27,7 @@ Only two workflow labels are expected:
 - `implementing`: implementation work is actively underway
 - `needs-product-input`: progress is blocked on PO or PO Agent input
 
-Do not duplicate native GitHub state with labels for draft, review, approval, merge, or close.
+Do not duplicate native GitHub state with labels or repo states for draft PRs, reviews, approvals, merges, or closes.
 
 ## Docs
 

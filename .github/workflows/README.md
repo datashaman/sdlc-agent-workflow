@@ -10,6 +10,7 @@ Possible checks:
 - require Markdown checkboxes in `changes/<change-id>/tasks.md`
 - require Architect PR approval before product review
 - require PO PR approval before merge
+- warn if `state.md` uses removed terminal/review-only states such as `product-review` or `accepted`
 - allow only `implementing` and `needs-product-input` as workflow labels
 - validate workflow label colors and descriptions
 - warn when labels duplicate native PR draft/ready, PR review, merged PR, or closed issue state

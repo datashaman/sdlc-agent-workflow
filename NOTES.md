@@ -17,6 +17,7 @@ These are the current process lessons from dogfooding the workflow.
    - Keep `implementing` as a blue visual indicator that implementation is actively happening.
    - Keep `needs-product-input` as an orange blocking indicator.
    - Do not add labels for draft, architecture review, product review, accepted, merged, closed, or review-requested states.
+   - Do not keep separate `product-review` or `accepted` repo states; PR reviews and native merge/close state already cover them.
 
 4. Artifact ownership matters.
    - PO Agent owns `proposal.md` and `specs/`.

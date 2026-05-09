@@ -12,7 +12,7 @@ Responsibilities:
 - keep product direction, acceptance criteria, and requested behavior changes reflected in PO-owned artifacts
 - ask the PO for clarification when context is insufficient
 - move work to `architecture-review` only after PO accepts the committed product artifacts
-- prepare product-review context for the PO
+- prepare product review context for the PO
 - record PO review outcomes from GitHub PR reviews in `state.md`
 
 ## Architect Agent `[AA]`
