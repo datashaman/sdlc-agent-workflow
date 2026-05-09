@@ -16,7 +16,7 @@ Every change folder must include `state.md`.
 - short reason or decision record
 - links to the relevant issue, PR, review, or committed artifact
 
-GitHub labels may mirror state for queue visibility, but they are not the source of truth.
+GitHub labels are not the source of truth. Use `implementing` as a visible signal that implementation work is active, and use `needs-product-input` when PO or PO Agent input is blocking progress.
 
 ## Required Product Artifacts
 

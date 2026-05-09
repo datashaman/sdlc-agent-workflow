@@ -12,3 +12,4 @@ Possible checks:
 - prevent workflow labels that duplicate native PR review state, such as `technical-review` or `technical-changes-requested`
 - prevent workflow labels or comments that duplicate native PO product-review approval or requested-changes review state
 - prevent workflow labels that duplicate committed architecture artifacts or PR approvals, such as `architecture-planning`, `architecture-approved`, or `ready-for-implementation`
+- prevent routine workflow-state labels other than `implementing` and `needs-product-input`
