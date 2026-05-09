@@ -15,10 +15,10 @@ Current checks:
 - reject removed states such as `product-review` or `accepted`
 - require ordered `specs/NN-*.md` files for active changes
 - require Markdown checkboxes in `tasks.md` for active changes
+- when given a changed-file list, require workflow PRs to touch exactly one `changes/issue-*` folder
 
 Backlog:
 
-- validate workflow PRs change exactly one `changes/issue-*` folder
 - require PR bodies to link the issue
 - require Architect PR approval before product review
 - require PO PR approval before merge

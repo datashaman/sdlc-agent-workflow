@@ -11,5 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Validate workflow artifacts
         run: ./scripts/validate-workflow.sh
+      - name: Validate changed workflow folders
+        if: github.event_name == 'pull_request'
+        run: |
+          git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" > /tmp/changed-files
+          ./scripts/validate-workflow.sh --changed-files /tmp/changed-files

@@ -21,6 +21,8 @@ Example:
 changes/issue-12-agent-review-validation/
 ```
 
+Workflow PRs should touch exactly one `changes/issue-*` folder. If a change needs to update shared workflow templates or docs, keep that separate from a product/workflow change artifact unless the shared edit is the change itself.
+
 ## PR Review Bodies
 
 GitHub PR review state records approval or requested changes. The review body identifies which human gate the review represents.

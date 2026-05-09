@@ -53,6 +53,7 @@ These are the current process lessons from dogfooding the workflow.
 - Validate state names and allowed transitions.
 - Validate ordered spec filenames.
 - Validate `tasks.md` uses Markdown checkboxes.
+- Validate workflow PRs touch exactly one `changes/issue-*` folder.
 - Validate only `implementing` and `needs-product-input` are used as workflow labels.
 - Validate workflow label colors and descriptions.
 - Validate workflow PRs change exactly one `changes/issue-*` folder.

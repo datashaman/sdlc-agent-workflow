@@ -2,6 +2,16 @@
 set -eu
 
 failures=0
+changed_files=
+
+if [ "$#" -gt 0 ]; then
+  if [ "$#" -ne 2 ] || [ "$1" != "--changed-files" ]; then
+    printf 'usage: %s [--changed-files <path>]\n' "$0" >&2
+    exit 2
+  fi
+
+  changed_files=$2
+fi
 
 fail() {
   failures=$((failures + 1))
@@ -97,6 +107,37 @@ validate_tasks() {
   fi
 }
 
+validate_changed_files() {
+  changed_file_list=$1
+
+  if [ ! -f "$changed_file_list" ]; then
+    fail "$changed_file_list does not exist"
+    return
+  fi
+
+  change_dirs=$(sed -n 's#^\(changes/issue-[^/]*\)/.*#\1#p' "$changed_file_list" | sort -u)
+  other_change_paths=$(grep -E '^changes/' "$changed_file_list" | grep -Ev '^changes/(issue-[^/]+|templates)(/|$)' || true)
+
+  if [ -n "$other_change_paths" ]; then
+    for path in $other_change_paths; do
+      [ -n "$path" ] && fail "$path is under changes/ but not changes/issue-<number>-<short-slug>/"
+    done
+  fi
+
+  if [ -z "$change_dirs" ]; then
+    return
+  fi
+
+  change_count=$(printf '%s\n' "$change_dirs" | wc -l | tr -d ' ')
+  if [ "$change_count" -ne 1 ]; then
+    fail "workflow PRs must touch exactly one changes/issue-* folder; found $change_count"
+    printf '%s\n' "$change_dirs" >&2
+    return
+  fi
+
+  validate_change_id "$change_dirs"
+}
+
 found=0
 
 for change_dir in changes/*; do
@@ -115,6 +156,10 @@ for change_dir in changes/*; do
   validate_specs "$change_dir"
   validate_tasks "$change_dir"
 done
+
+if [ -n "$changed_files" ]; then
+  validate_changed_files "$changed_files"
+fi
 
 if [ "$found" -eq 0 ]; then
   printf 'No change folders found.\n'
