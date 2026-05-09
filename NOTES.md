@@ -1,4 +1,4 @@
-# Dogfood Notes: Workflow Issues Observed
+# Notes: Workflow Dogfood Issues
 
 Issue: #2
 
@@ -47,3 +47,13 @@ These notes capture process issues observed while running this change through th
    - `product-acceptance` sounds like PO acceptance has already happened.
    - In practice, the state means the implementation is waiting for PO product review after technical approval.
    - Follow-up: rename the state and label to `product-review` so it matches `technical-review`, then reserve `accepted` for actual PO acceptance.
+
+10. Do not duplicate native GitHub states as labels.
+   - PRs already have a native draft state, so a `draft` label is redundant for PRs.
+   - Issues already have open/closed state, and PRs already have open/closed/merged state.
+   - Follow-up: define which workflow states need labels and which should use native GitHub state instead.
+
+11. Remove `merged-closed` as a workflow label.
+   - Issues close and PRs merge through native GitHub state.
+   - A `merged-closed` label duplicates native state and creates another state signal that can drift.
+   - Follow-up: remove the label from the state machine or reserve final workflow completion for native closed/merged state.
