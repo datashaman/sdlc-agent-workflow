@@ -13,7 +13,7 @@
    3. PO Agent ensures specs include Title, Narrative with As a / I want / so that, and Acceptance Criteria with Given / When / Then scenarios. `[PA]`
    4. PO accepts the committed proposal and specs as ready for architecture review. `[PO]`
 
-5. Product clarification loop, until scope is clear enough for technical review:
+5. Product clarification loop, until scope is clear enough for architecture review:
 
    1. Architect Agent reviews the accepted committed product artifacts for scope, feasibility, constraints, and architectural impact, using the issue as source history. `[AA]`
    2. If the work is unclear or infeasible, Architect Agent posts questions or constraints on the issue. `[AA]`
