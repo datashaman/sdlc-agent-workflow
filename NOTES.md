@@ -46,7 +46,7 @@ These notes capture process issues observed while running this change through th
 9. Rename `product-acceptance` to `product-review`.
    - `product-acceptance` sounds like PO acceptance has already happened.
    - In practice, the state means the implementation is waiting for PO product review after technical approval.
-   - Resolved: workflow docs now use `product-review`, matching `technical-review`, and reserve `accepted` for actual PO acceptance.
+   - Resolved: workflow docs now use `product-review` for the PO review stage and reserve `accepted` for actual PO acceptance.
 
 10. Do not duplicate native GitHub states as labels.
    - PRs already have a native draft state, so a `draft` label is redundant for PRs.
@@ -57,3 +57,8 @@ These notes capture process issues observed while running this change through th
    - Issues close and PRs merge through native GitHub state.
    - A `merged-closed` label duplicates native state and creates another state signal that can drift.
    - Resolved: workflow docs now use native GitHub merged/closed state instead of a final `merged-closed` workflow label.
+
+12. Remove technical review labels in favor of native PR review state.
+   - GitHub PR reviews already model technical approval, requested changes, and review discussion.
+   - `technical-review` and `technical-changes-requested` labels duplicate PR review state and can drift from the actual PR review outcome.
+   - Resolved: workflow docs now keep the workflow in `in-implementation` while technical review cycles through native GitHub PR review state, then move to `product-review` after Architect technical approval.

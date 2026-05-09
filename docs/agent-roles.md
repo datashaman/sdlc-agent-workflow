@@ -27,7 +27,7 @@ Responsibilities:
 - record approved technical direction in a separate architecture artifact on the PR
 - break the work into implementation tasks
 - review implementation quality and architecture fit
-- record technical changes requested by the Architect
+- record technical changes requested by the Architect through GitHub PR review comments or requested-changes review state
 - merge or close the work after product approval and required checks pass
 
 The Architect Agent must not directly edit PO-owned proposal or spec artifacts after architecture review begins. If product ambiguity, infeasibility, or missing acceptance criteria are found, the workflow moves to `needs-product-clarification` so the PO Agent can update those artifacts.
@@ -38,5 +38,5 @@ Responsibilities:
 
 - implement assigned tasks
 - update progress in the PR
-- fix technical changes requested by the Architect / Architect Agent
+- fix technical changes requested through GitHub PR review
 - fix product behavior changes requested after PO review

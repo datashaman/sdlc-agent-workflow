@@ -9,3 +9,4 @@ Possible checks:
 - validate known workflow labels
 - prevent invalid state transitions
 - prevent labels that duplicate native GitHub state, such as applying `draft` to a draft PR or using a final `merged-closed` label
+- prevent workflow labels that duplicate native PR review state, such as `technical-review` or `technical-changes-requested`

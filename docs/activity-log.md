@@ -32,14 +32,14 @@
 
 8. Architect Agent breaks the work into implementation tasks. `[AA]`
 
-9. Implementation and review loop, until both technical review and product review pass:
+9. Implementation and review loop, until both GitHub PR technical review and product review pass:
 
    1. Implementation Agent implements the tasks. `[IA]`
    2. Implementation Agent updates progress in the PR. `[IA]`
    3. Architect Agent reviews the implementation for quality, architecture fit, and alignment with the technical approach. `[AA]`
    4. Architect approves or rejects the implementation from a technical/architectural perspective. `[Arch]`
-   5. If Architect rejects the implementation, Architect Agent records required technical changes in the PR. `[AA]`
-   6. If technical changes are required, Implementation Agent fixes the implementation and the implementation loop restarts. `[IA]`
+   5. If Architect rejects the implementation, Architect Agent records required technical changes through GitHub PR review comments or requested-changes review state. `[AA]`
+   6. If technical changes are required, Implementation Agent fixes the implementation and the GitHub PR review cycle restarts. `[IA]`
    7. PO Agent checks the delivered behavior against the acceptance criteria during product review. `[PA]`
    8. PO Agent summarizes the outcome for the PO. `[PA]`
    9. PO reviews the delivered behavior. `[PO]`

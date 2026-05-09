@@ -9,8 +9,6 @@
 - `architecture-approved`
 - `ready-for-implementation`
 - `in-implementation`
-- `technical-review`
-- `technical-changes-requested`
 - `product-review`
 - `product-changes-requested`
 - `accepted`
@@ -26,10 +24,7 @@ architecture-planning -> needs-product-clarification
 architecture-planning -> architecture-approved
 architecture-approved -> ready-for-implementation
 ready-for-implementation -> in-implementation
-in-implementation -> technical-review
-technical-review -> technical-changes-requested
-technical-changes-requested -> in-implementation
-technical-review -> product-review
+in-implementation -> product-review
 product-review -> product-changes-requested
 product-changes-requested -> in-implementation
 product-review -> accepted
@@ -48,8 +43,6 @@ product-review -> accepted
 - Architect approves direction: `architecture-approved`
 - Tasks are ready: `ready-for-implementation`
 - Implementation starts: `in-implementation`
-- Implementation is ready for review: `technical-review`
-- Architect rejects implementation: `technical-changes-requested`
 - Architect approves implementation: `product-review`
 - PO rejects delivered behavior: `product-changes-requested`
 - PO approves delivered behavior: `accepted`
@@ -62,6 +55,7 @@ product-review -> accepted
 - `needs-product-clarification`: returns control to the PO Agent so PO-owned proposal and spec artifacts can be updated before another architecture review attempt.
 - `architecture-planning`: Architect Agent reviews accepted product artifacts and records architecture outputs separately from PO-owned proposal/spec files.
 - `architecture-approved`: Architect has approved the technical direction and the work can be broken into implementation tasks.
+- `in-implementation`: Implementation Agent works on the PR. Technical review, requested changes, and approval happen through native GitHub PR review state and comments while the workflow remains in this state.
 - `product-review`: PO Agent and PO review delivered behavior against acceptance criteria after technical approval.
 - `accepted`: PO has accepted the delivered behavior. After this state, the PR should be merged and the issue should be closed using native GitHub state rather than a final status label.
 
@@ -72,6 +66,7 @@ Workflow labels should represent active workflow states that GitHub does not alr
 - Treat absence of a workflow label on an open change issue as `draft`.
 - Do not create or apply a `draft` workflow label.
 - Use GitHub's native draft PR state for draft PRs. Do not apply a `draft` label to PRs.
+- Use GitHub's native PR review state for technical review, approval, and requested implementation changes. Do not create workflow labels for `technical-review` or `technical-changes-requested`.
 - Use GitHub's native merged PR state and closed issue state for completed work.
 - Do not use a `merged-closed` workflow label.
 - Keep the PR body as an index and status summary. When a workflow label changes, update the PR body status in the same step.
