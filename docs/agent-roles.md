@@ -1,6 +1,6 @@
 # Agent Roles
 
-For copy-paste starting instructions for each represented agent, see [Agent Prompts](agent-prompts.md).
+This file is the canonical source for represented agent responsibilities. For copy-paste starting instructions that apply these responsibilities in a live workflow, see [Agent Prompts](agent-prompts.md).
 
 ## PO Agent `[PA]`
 
