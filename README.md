@@ -34,5 +34,6 @@ Do not duplicate native GitHub state with labels or repo states for draft PRs, r
 - [Activity Log](docs/activity-log.md)
 - [Workflow State](docs/workflow-state.md)
 - [Agent Roles](docs/agent-roles.md)
+- [Conventions](docs/conventions.md)
 - [Automation Backlog](docs/automation.md)
 - [Change Artifacts](changes/)

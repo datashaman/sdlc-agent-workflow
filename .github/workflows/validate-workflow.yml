@@ -1,0 +1,15 @@
+name: Validate workflow artifacts
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate workflow artifacts
+        run: ./scripts/validate-workflow.sh

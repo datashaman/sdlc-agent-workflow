@@ -37,6 +37,7 @@ Use GitHub for collaboration mechanics, not as a second workflow state machine.
 - Mark the PR ready for review when Architect or PO review is needed.
 - Use PR reviews for Architect technical approval or requested changes.
 - Use PR reviews for PO product approval or requested changes.
+- Prefix PR review bodies with `Architecture review:` or `Product review:` to identify the human gate.
 - Use native merged PR state and closed issue state for completed work.
 - Keep the PR body as an index to the issue and repo artifacts.
 
@@ -76,3 +77,5 @@ Completed work does not need a terminal workflow state. Record the PO approval r
 - The PR body links to the issue and the change folder.
 - The PR body follows `.github/pull_request_template.md`.
 - `state.md` links to the current authoritative review or decision artifact for the latest transition.
+
+See `docs/conventions.md` for change ID and PR review body conventions.

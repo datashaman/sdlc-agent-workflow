@@ -1,17 +1,26 @@
 # Automation Backlog
 
-These are candidate checks for future GitHub Actions or local validation scripts that enforce the repo-first workflow.
+These are checks for GitHub Actions or local validation scripts that enforce the repo-first workflow.
 
-Possible checks:
+Implemented:
 
-- require `changes/<change-id>/state.md` for active change PRs
-- validate known state names and allowed transitions
-- require ordered `changes/<change-id>/specs/NN-*.md` files
-- require Markdown checkboxes in `changes/<change-id>/tasks.md`
+- `scripts/validate-workflow.sh` validates local workflow artifacts.
+- `.github/workflows/validate-workflow.yml` runs the validator on PRs and pushes to `main`.
+
+Current checks:
+
+- require change folders to use `changes/issue-<number>-<short-slug>/`
+- require `state.md`, `proposal.md`, `architecture.md`, `tasks.md`, and `specs/`
+- validate active state names
+- reject removed states such as `product-review` or `accepted`
+- require ordered `specs/NN-*.md` files for active changes
+- require Markdown checkboxes in `tasks.md` for active changes
+
+Backlog:
+
 - require PR bodies to link the issue, change folder, state file, and task file
 - require Architect PR approval before product review
 - require PO PR approval before merge
-- warn if `state.md` uses removed terminal/review-only states such as `product-review` or `accepted`
 - allow only `implementing` and `needs-product-input` as workflow labels
 - validate workflow label colors and descriptions
 - warn when labels duplicate native PR draft/ready, PR review, merged PR, or closed issue state

@@ -41,9 +41,14 @@ These are the current process lessons from dogfooding the workflow.
    - Creating new issues should be explicit.
    - When the workflow needs a comment on an existing issue or PR, do not create a new resource.
 
+9. Review identity should be explicit.
+   - Architect PR reviews should start with `Architecture review:`.
+   - PO PR reviews should start with `Product review:`.
+
 ## Follow-Up Automation Ideas
 
 - Validate `state.md` exists for each active change.
+- Validate change IDs use `issue-<number>-<short-slug>`.
 - Validate state names and allowed transitions.
 - Validate ordered spec filenames.
 - Validate `tasks.md` uses Markdown checkboxes.

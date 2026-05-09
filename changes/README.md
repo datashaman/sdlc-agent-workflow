@@ -2,7 +2,7 @@
 
 Each in-progress workflow change keeps durable artifacts under `changes/<change-id>/`.
 
-The change ID should be stable and readable. Prefer an issue-number prefix plus a short slug, such as `issue-2-po-agent-pr-artifacts`.
+The change ID should be stable and readable. Use `issue-<number>-<short-slug>`, such as `issue-2-po-agent-pr-artifacts`.
 
 ## Required Files
 
@@ -15,6 +15,8 @@ Every change folder must include:
 - `tasks.md`: Architect Agent-owned implementation checklist.
 
 Start from the templates in `changes/templates/` when creating a new change.
+
+Historical completed changes may predate the current artifact contract. Validators should enforce the current contract for active changes first.
 
 ## State
 
