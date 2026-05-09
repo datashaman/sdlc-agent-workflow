@@ -23,7 +23,8 @@ The workflow assumes:
 - [State Machine](docs/state-machine.md)
 - [Agent Roles](docs/agent-roles.md)
 
-## Workflow Artifacts
+## Change Artifacts
 
-- [Proposals](proposals/)
-- [Specs](specs/)
+Each change keeps its proposal, specs, and review artifacts together under `changes/`.
+
+- [Changes](changes/)
