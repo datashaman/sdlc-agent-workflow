@@ -5,7 +5,7 @@ PR: #6
 
 ## Current State
 
-`architecture-review`
+`implementing`
 
 Allowed active states:
 
@@ -19,8 +19,8 @@ Completed work should reference the PO approval review, merged PR, and closed is
 ## Last State Change
 
 - Date: 2026-05-09
-- Actor: PO Agent
-- Reason: Product review was accepted by PR comment because GitHub does not allow the PR author to approve their own PR. The comment also provides an event for automation to observe.
+- Actor: Architect Agent
+- Reason: Architecture review accepted the PO-owned product artifacts, filled AA-owned architecture and implementation tasks, and moved the change to implementation.
 
 ## Relevant Links
 
@@ -28,6 +28,8 @@ Completed work should reference the PO approval review, merged PR, and closed is
 - PR: https://github.com/datashaman/sdlc-agent-workflow/pull/6
 - Review: https://github.com/datashaman/sdlc-agent-workflow/pull/6#issuecomment-4411793297
 - Artifacts: `changes/issue-5-agent-prompts/`
+- Architecture: `changes/issue-5-agent-prompts/architecture.md`
+- Tasks: `changes/issue-5-agent-prompts/tasks.md`
 
 ## Completion
 
