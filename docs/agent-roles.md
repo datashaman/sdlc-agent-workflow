@@ -15,7 +15,7 @@ Responsibilities:
 - ask the PO for clarification when context is insufficient
 - move work to `architecture-review` only after PO accepts the committed product artifacts
 - prepare product review context for the PO
-- record PO review outcomes from GitHub PR reviews in `state.md`
+- record PO review outcomes from the configured product review mode in `state.md`
 
 ## Architect Agent `[AA]`
 
@@ -46,4 +46,4 @@ Responsibilities:
 
 - PO acceptance of product artifacts gates architecture review.
 - Architect PR review gates implementation and technical approval.
-- PO PR review gates product acceptance.
+- PO product acceptance is captured by the configured product review mode.

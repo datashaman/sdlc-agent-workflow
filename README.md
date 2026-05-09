@@ -8,7 +8,7 @@ The current approach is repo-first:
 - `changes/<change-id>/` contains the durable workflow artifacts
 - `state.md` is the canonical workflow state
 - PR draft/ready state signals review readiness
-- PR reviews capture Architect technical approval and PO product approval
+- PR reviews capture Architect technical approval; PO product approval is captured by the configured product review mode
 - labels are limited to active visual signals
 - GitHub merged PR and closed issue state capture completion
 

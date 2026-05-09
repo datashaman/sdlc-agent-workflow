@@ -24,7 +24,7 @@ Canonical state lives in `changes/<change-id>/state.md`.
 
 GitHub issues start work and keep discussion history. GitHub labels, PR draft state, PR reviews, and comments are operational signals only; they are not a second workflow state machine.
 
-Architect and PO approval gates are recorded through GitHub PR reviews. Completion is represented by the merged PR and closed issue, not a terminal workflow state.
+Architect technical approval is recorded through GitHub PR reviews. PO product approval is recorded through the configured product review mode. Completion is represented by the merged PR and closed issue, not a terminal workflow state.
 
 If the configured product review mode is `self-comment-acceptance`, PO acceptance may be recorded with a `Product review:` PR comment instead of an approving PR review. Link that comment from `state.md` and explain why comment acceptance was used.
 

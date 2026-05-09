@@ -10,7 +10,8 @@ These are the current process lessons from dogfooding the workflow.
 
 2. GitHub native state should not be duplicated.
    - PR draft/ready state signals review readiness.
-   - PR reviews capture Architect technical approval, PO product approval, and requested changes.
+   - PR reviews capture Architect technical approval and requested changes.
+   - PO product approval is captured according to the configured product review mode.
    - Merged PRs and closed issues capture completion.
 
 3. Labels should stay sparse.
@@ -44,7 +45,7 @@ These are the current process lessons from dogfooding the workflow.
 
 9. Review identity should be explicit.
    - Architect PR reviews should start with `Architecture review:`.
-   - PO PR reviews should start with `Product review:`.
+   - PO product review evidence should start with `Product review:`.
 
 10. Product review may need a PR comment fallback.
    - GitHub does not allow the PR author to approve their own PR.

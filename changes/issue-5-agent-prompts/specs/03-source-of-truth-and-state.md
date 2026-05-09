@@ -22,7 +22,7 @@ Scenario: Prompt guidance preserves human gates
 Given the workflow uses human PO and Architect gates
 When prompt guidance describes handoffs
 Then it describes Architect technical approval as a PR review
-And it describes PO product approval as a PR review
+And it describes PO product approval according to the configured product review mode
 And it does not replace those gates with agent-only approval
 
 Scenario: Prompt guidance tells agents when to ask for clarification

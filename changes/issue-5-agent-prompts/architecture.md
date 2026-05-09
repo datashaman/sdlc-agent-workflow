@@ -16,7 +16,8 @@ The implementation should add prompt guidance under `docs/` and link it from the
 - Prompt guidance must preserve PO Agent and Architect Agent artifact ownership boundaries.
 - `changes/<change-id>/state.md` remains the canonical workflow state.
 - GitHub labels, PR draft state, PR reviews, and comments remain operational signals only.
-- Human Architect and PO gates must remain PR-review based.
+- Architect technical approval must remain PR-review based.
+- PO product approval must follow the configured product review mode.
 - Prompt guidance must cover PO Agent (`PA`), Architect Agent (`AA`), and Implementation Agent (`IA`).
 
 ## Decisions
@@ -33,11 +34,15 @@ The implementation should add prompt guidance under `docs/` and link it from the
 - Link the prompt guidance from `README.md` and `docs/agent-roles.md`.
 - Keep the prompts copy-paste friendly and operational, with no automation-specific assumptions.
 - Treat prompt guidance as an extension of the existing role docs, not a replacement for `docs/agent-roles.md`.
+- Support both product review modes without adding workflow states:
+  - `peer-po-review`: PO acceptance evidence is a GitHub PR review.
+  - `self-comment-acceptance`: PO acceptance evidence is a `Product review:` PR comment.
 
 ## Risks
 
 - Prompt text could accidentally grant agents authority outside their documented role boundaries.
 - Prompt text could imply GitHub comments, PR bodies, labels, or draft state are canonical workflow state.
+- Prompt text could imply comment-based PO acceptance replaces canonical `state.md` instead of serving as linked acceptance evidence.
 - A single prompt document could become long enough that users skip relevant sections.
 - Implementation could duplicate too much of the role documentation, creating drift between docs.
 
@@ -45,6 +50,7 @@ Mitigations:
 
 - Keep each role prompt anchored to `docs/agent-roles.md` and the artifact ownership rules in `changes/README.md`.
 - Explicitly name `changes/<change-id>/state.md` as canonical in every prompt.
+- Link the configured PO acceptance evidence from `state.md`.
 - Keep shared guidance concise and role sections scannable.
 - Link to source workflow docs instead of copying every rule verbatim.
 

@@ -14,7 +14,7 @@ Allowed active states:
 - `needs-product-input`
 - `implementing`
 
-Completed work should reference the PO approval review, merged PR, and closed issue instead of using a terminal workflow state.
+Completed work should reference the PO approval evidence, merged PR, and closed issue instead of using a terminal workflow state.
 
 ## Last State Change
 
@@ -40,6 +40,6 @@ Completed work should reference the PO approval review, merged PR, and closed is
 
 ## Completion
 
-- PO approval review: <not complete>
+- PO approval evidence: <not complete>
 - Merged PR: <not complete>
 - Closed issue: <not complete>

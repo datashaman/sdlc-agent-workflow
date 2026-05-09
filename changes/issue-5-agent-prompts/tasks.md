@@ -12,4 +12,5 @@ PR: #6
 - [x] Document when agents should ask for clarification or move to `needs-product-input` instead of guessing.
 - [x] Link the prompt guidance from existing workflow docs.
 - [x] Add validation notes confirming consistency with `README.md`, `docs/agent-roles.md`, `docs/workflow-state.md`, and `changes/README.md`.
+- [x] Align workflow docs and architecture notes with configurable product review modes.
 - [x] Run `./scripts/validate-workflow.sh`.

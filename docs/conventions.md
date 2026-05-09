@@ -23,14 +23,14 @@ changes/issue-12-agent-review-validation/
 
 Workflow PRs should touch exactly one `changes/issue-*` folder. If a change needs to update shared workflow templates or docs, keep that separate from a product/workflow change artifact unless the shared edit is the change itself.
 
-## PR Review Bodies
+## Review And Acceptance Bodies
 
-GitHub PR review state records approval or requested changes. The review body identifies which human gate the review represents.
+GitHub PR reviews record Architect technical approval or requested changes. PO product approval is recorded according to the configured product review mode.
 
 Use these prefixes:
 
 - `Architecture review:` for Architect technical approval or requested changes.
-- `Product review:` for PO product approval or requested changes.
+- `Product review:` for PO product approval or requested changes, whether captured as a PR review in `peer-po-review` mode or as a PR comment in `self-comment-acceptance` mode.
 
 Examples:
 
