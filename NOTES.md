@@ -51,7 +51,7 @@ These notes capture process issues observed while running this change through th
 10. Do not duplicate native GitHub states as labels.
    - PRs already have a native draft state, so a `draft` label is redundant for PRs.
    - Issues already have open/closed state, and PRs already have open/closed/merged state.
-   - Resolved: workflow docs now say labels should represent states GitHub does not already model, and draft PRs should use GitHub's native draft state.
+   - Resolved: workflow docs now say labels should represent active workflow states GitHub does not already model, draft issues use absence of a workflow label, and draft PRs use GitHub's native draft state.
 
 11. Remove `merged-closed` as a workflow label.
    - Issues close and PRs merge through native GitHub state.

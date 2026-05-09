@@ -67,8 +67,10 @@ product-review -> accepted
 
 ## GitHub State And Labels
 
-Workflow labels should represent states that GitHub does not already model.
+Workflow labels should represent active workflow states that GitHub does not already model.
 
+- Treat absence of a workflow label on an open change issue as `draft`.
+- Do not create or apply a `draft` workflow label.
 - Use GitHub's native draft PR state for draft PRs. Do not apply a `draft` label to PRs.
 - Use GitHub's native merged PR state and closed issue state for completed work.
 - Do not use a `merged-closed` workflow label.
