@@ -26,6 +26,7 @@ In scope:
 
 - prompts for PO Agent (`PA`), Architect Agent (`AA`), and Implementation Agent (`IA`)
 - documentation for where the prompts live and how they should be used
+- configurable product-review modes for team and solo PO workflows
 - alignment with the existing issue-triggered, repo-backed workflow
 - consistency checks against the current workflow docs
 
@@ -42,6 +43,7 @@ Out of scope:
 - Each prompt includes identity, inputs, edit boundaries, state authority, clarification rules, and handoff expectations.
 - Prompt guidance preserves `changes/<change-id>/state.md` as the canonical workflow state.
 - Prompt guidance preserves PO Agent ownership of product artifacts and Architect Agent ownership of architecture/task artifacts.
+- Prompt guidance explains how the product review gate works in both `peer-po-review` and `self-comment-acceptance` modes.
 - Existing workflow docs link to or describe the prompt location.
 
 ## Open Product Questions

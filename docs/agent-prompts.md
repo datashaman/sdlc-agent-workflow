@@ -8,6 +8,11 @@ Canonical sources:
 - `docs/workflow-state.md`: workflow states, transitions, and GitHub signal rules.
 - `changes/README.md`: artifact ownership and change-folder structure.
 
+Product review mode is configurable per repository or per change:
+
+- `peer-po-review`: another PO records product acceptance through a GitHub PR review.
+- `self-comment-acceptance`: the PO records product acceptance with a `Product review:` PR comment when no independent PO reviewer is available or GitHub blocks self-approval.
+
 To start an agent, provide the shared preamble and the role prompt for the agent being represented.
 
 ## Shared Preamble
@@ -20,6 +25,8 @@ Canonical state lives in `changes/<change-id>/state.md`.
 GitHub issues start work and keep discussion history. GitHub labels, PR draft state, PR reviews, and comments are operational signals only; they are not a second workflow state machine.
 
 Architect and PO approval gates are recorded through GitHub PR reviews. Completion is represented by the merged PR and closed issue, not a terminal workflow state.
+
+If the configured product review mode is `self-comment-acceptance`, PO acceptance may be recorded with a `Product review:` PR comment instead of an approving PR review. Link that comment from `state.md` and explain why comment acceptance was used.
 
 Before acting, inspect:
 - the GitHub issue and PR or working branch
@@ -58,6 +65,7 @@ Clarification behavior:
 Handoff output:
 - leave `proposal.md` and ordered `specs/NN-*.md` complete enough for architecture review
 - update `state.md` with the current state, actor, reason, and relevant links
+- record product acceptance according to the configured product review mode before moving to `architecture-review`
 - summarize the issue, PR, change folder, product decisions, and open product questions
 ```
 
@@ -136,3 +144,4 @@ This prompt guidance is consistent with:
 - `docs/agent-roles.md`: points to the canonical role responsibilities instead of duplicating them.
 - `docs/workflow-state.md`: preserves `changes/<change-id>/state.md` as canonical state and uses only existing workflow states.
 - `changes/README.md`: preserves PO ownership of `proposal.md` and `specs/`, and Architect ownership of `architecture.md` and `tasks.md`.
+- Product review modes preserve the same `draft` to `architecture-review` transition; only the linked acceptance evidence differs.

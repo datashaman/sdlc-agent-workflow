@@ -31,6 +31,13 @@ Completed work should reference the PO approval review, merged PR, and closed is
 - Architecture: `changes/issue-5-agent-prompts/architecture.md`
 - Tasks: `changes/issue-5-agent-prompts/tasks.md`
 
+## Product Input During Implementation
+
+- Date: 2026-05-09
+- Actor: PO Agent
+- Decision: Add configurable product review modes so the workflow supports both peer PO review and solo PO comment acceptance.
+- Artifacts: `changes/issue-5-agent-prompts/specs/04-product-review-modes.md`
+
 ## Completion
 
 - PO approval review: <not complete>

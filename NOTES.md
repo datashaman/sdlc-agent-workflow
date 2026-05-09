@@ -56,6 +56,11 @@ These are the current process lessons from dogfooding the workflow.
    - The PO Agent should push the branch and open a PR before asking another agent or automation to consume the change artifacts.
    - The issue should link to the PR, or receive a comment with the PR link, so remote agents can discover the artifacts from the issue.
 
+12. Product review mode should be configurable.
+   - Use `peer-po-review` when another PO is available to approve through a PR review.
+   - Use `self-comment-acceptance` when working alone or when GitHub blocks self-approval.
+   - Both modes keep the same durable transition, `draft` to `architecture-review`; only the linked acceptance evidence differs.
+
 ## Follow-Up Automation Ideas
 
 - Validate `state.md` exists for each active change.
