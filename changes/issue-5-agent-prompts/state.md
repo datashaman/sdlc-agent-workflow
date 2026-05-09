@@ -5,7 +5,7 @@ PR: #6
 
 ## Current State
 
-`draft`
+`architecture-review`
 
 Allowed active states:
 
@@ -20,13 +20,13 @@ Completed work should reference the PO approval review, merged PR, and closed is
 
 - Date: 2026-05-09
 - Actor: PO Agent
-- Reason: Issue #5 was created, initial PO-owned product artifacts were drafted for review, and draft PR #6 was opened so remote agents can inspect the change.
+- Reason: Product review was accepted by PR comment because GitHub does not allow the PR author to approve their own PR. The comment also provides an event for automation to observe.
 
 ## Relevant Links
 
 - Issue: https://github.com/datashaman/sdlc-agent-workflow/issues/5
 - PR: https://github.com/datashaman/sdlc-agent-workflow/pull/6
-- Review: <not applicable>
+- Review: https://github.com/datashaman/sdlc-agent-workflow/pull/6#issuecomment-4411793297
 - Artifacts: `changes/issue-5-agent-prompts/`
 
 ## Completion
