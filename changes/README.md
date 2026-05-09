@@ -33,9 +33,9 @@ GitHub labels are not the source of truth. Use only:
 - `implementing` when implementation work is actively underway
 - `needs-product-input` when PO or PO Agent input is blocking progress
 
-The issue should link to the PR, and the PR body should link to the issue and change folder. Keep those links stable; do not use the PR body as the canonical state record.
+The issue should link to the PR, and the PR body should link to the issue. Agents should discover the change folder from the PR changed files. Do not use the PR body as the canonical state record or artifact index.
 
-Use `.github/pull_request_template.md` as the PR body shape. It should remain an index, not a duplicate proposal, spec, task list, or state log.
+Use `.github/pull_request_template.md` as the PR body shape. Keep it short; GitHub already lists changed files.
 
 ## Product Artifacts
 

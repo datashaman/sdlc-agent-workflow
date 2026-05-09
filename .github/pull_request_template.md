@@ -1,9 +1,6 @@
-# Change Index
+# Change
 
 Issue: #<issue-number>
-Change folder: `changes/<change-id>/`
-State: `changes/<change-id>/state.md`
-Tasks: `changes/<change-id>/tasks.md`
 
 ## Review Links
 
@@ -14,4 +11,4 @@ Review bodies should start with `Architecture review:` or `Product review:` so t
 
 ## Notes
 
-<Short operational note only. Canonical state and artifacts live in the change folder.>
+<Short operational note only. Canonical state and artifacts live in changed files under `changes/`.>

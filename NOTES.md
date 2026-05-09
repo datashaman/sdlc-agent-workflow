@@ -33,7 +33,8 @@ These are the current process lessons from dogfooding the workflow.
    - Implementation Agent updates checkboxes as work completes.
 
 7. PR body updates should be rare.
-   - The PR body is an index to issue and repo artifacts.
+   - The PR body links the issue and carries optional operational notes.
+   - Agents discover changed artifacts from GitHub's changed-files view.
    - Routine state transitions should update `state.md`, not the PR body.
    - Use `.github/pull_request_template.md` to keep PR bodies consistent.
 
@@ -54,4 +55,5 @@ These are the current process lessons from dogfooding the workflow.
 - Validate `tasks.md` uses Markdown checkboxes.
 - Validate only `implementing` and `needs-product-input` are used as workflow labels.
 - Validate workflow label colors and descriptions.
-- Warn if PR body appears to carry canonical state instead of linking to repo artifacts.
+- Validate workflow PRs change exactly one `changes/issue-*` folder.
+- Warn if PR body appears to carry canonical state or duplicate artifact contents.

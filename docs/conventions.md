@@ -42,4 +42,6 @@ Product review: Changes requested. The delivered behavior does not satisfy scena
 
 ## PR Bodies
 
-Use `.github/pull_request_template.md`. Keep the PR body as an index to the issue and repo artifacts, not a duplicate state log or product spec.
+Use `.github/pull_request_template.md`. Keep the PR body as a link to the issue plus optional operational notes, not a duplicate artifact index, state log, or product spec.
+
+Agents should find the change folder from the PR changed files.

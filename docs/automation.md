@@ -18,12 +18,13 @@ Current checks:
 
 Backlog:
 
-- require PR bodies to link the issue, change folder, state file, and task file
+- validate workflow PRs change exactly one `changes/issue-*` folder
+- require PR bodies to link the issue
 - require Architect PR approval before product review
 - require PO PR approval before merge
 - allow only `implementing` and `needs-product-input` as workflow labels
 - validate workflow label colors and descriptions
 - warn when labels duplicate native PR draft/ready, PR review, merged PR, or closed issue state
-- warn when PR body text appears to carry canonical workflow state instead of linking to repo artifacts
+- warn when PR body text appears to carry canonical workflow state or duplicate artifact contents
 
 Automation should validate active changes first. Historical completed changes may predate the current workflow and should not block new work unless explicitly migrated.
