@@ -1,5 +1,7 @@
 # Agent Roles
 
+This file is the canonical source for represented agent responsibilities. For copy-paste starting instructions that apply these responsibilities in a live workflow, see [Agent Prompts](agent-prompts.md).
+
 ## PO Agent `[PA]`
 
 Responsibilities:
@@ -13,7 +15,7 @@ Responsibilities:
 - ask the PO for clarification when context is insufficient
 - move work to `architecture-review` only after PO accepts the committed product artifacts
 - prepare product review context for the PO
-- record PO review outcomes from GitHub PR reviews in `state.md`
+- record PO review outcomes from the configured product review mode in `state.md`
 
 ## Architect Agent `[AA]`
 
@@ -44,4 +46,4 @@ Responsibilities:
 
 - PO acceptance of product artifacts gates architecture review.
 - Architect PR review gates implementation and technical approval.
-- PO PR review gates product acceptance.
+- PO product acceptance is captured by the configured product review mode.

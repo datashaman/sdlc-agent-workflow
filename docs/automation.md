@@ -21,7 +21,7 @@ Backlog:
 
 - require PR bodies to link the issue
 - require Architect PR approval before product review
-- require PO PR approval before merge
+- require PO approval evidence from the configured product review mode before merge
 - allow only `implementing` and `needs-product-input` as workflow labels
 - validate workflow label colors and descriptions
 - warn when labels duplicate native PR draft/ready, PR review, merged PR, or closed issue state

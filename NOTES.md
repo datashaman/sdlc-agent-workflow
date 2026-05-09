@@ -10,7 +10,8 @@ These are the current process lessons from dogfooding the workflow.
 
 2. GitHub native state should not be duplicated.
    - PR draft/ready state signals review readiness.
-   - PR reviews capture Architect technical approval, PO product approval, and requested changes.
+   - PR reviews capture Architect technical approval and requested changes.
+   - PO product approval is captured according to the configured product review mode.
    - Merged PRs and closed issues capture completion.
 
 3. Labels should stay sparse.
@@ -44,7 +45,22 @@ These are the current process lessons from dogfooding the workflow.
 
 9. Review identity should be explicit.
    - Architect PR reviews should start with `Architecture review:`.
-   - PO PR reviews should start with `Product review:`.
+   - PO product review evidence should start with `Product review:`.
+
+10. Product review may need a PR comment fallback.
+   - GitHub does not allow the PR author to approve their own PR.
+   - When the PO Agent opens the PR on behalf of the PO, a `Product review:` PR comment can record PO acceptance and trigger automation.
+   - If a comment is used as the product gate, `state.md` should link to that comment and explain why it was used instead of a PR approval review.
+
+11. Remote agents need remote artifacts.
+   - Local-only `changes/<change-id>/` files are not enough once another agent may work remotely.
+   - The PO Agent should push the branch and open a PR before asking another agent or automation to consume the change artifacts.
+   - The issue should link to the PR, or receive a comment with the PR link, so remote agents can discover the artifacts from the issue.
+
+12. Product review mode should be configurable.
+   - Use `peer-po-review` when another PO is available to approve through a PR review.
+   - Use `self-comment-acceptance` when working alone or when GitHub blocks self-approval.
+   - Both modes keep the same durable transition, `draft` to `architecture-review`; only the linked acceptance evidence differs.
 
 ## Follow-Up Automation Ideas
 

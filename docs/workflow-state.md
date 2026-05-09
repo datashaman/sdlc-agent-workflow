@@ -36,8 +36,11 @@ Use GitHub for collaboration mechanics, not as a second workflow state machine.
 - Use the PR draft state while the change is not ready for human review.
 - Mark the PR ready for review when Architect or PO review is needed.
 - Use PR reviews for Architect technical approval or requested changes.
-- Use PR reviews for PO product approval or requested changes.
-- Prefix PR review bodies with `Architecture review:` or `Product review:` to identify the human gate.
+- Use the configured product review mode for PO product approval or requested changes:
+  - `peer-po-review`: another PO records product acceptance through a GitHub PR review.
+  - `self-comment-acceptance`: the PO records product acceptance with a `Product review:` PR comment when no independent PO reviewer is available or GitHub blocks self-approval.
+- Prefix Architect review bodies with `Architecture review:`.
+- Prefix PO product review bodies or comments with `Product review:`.
 - Use native merged PR state and closed issue state for completed work.
 - Keep the PR body as a short link to the issue, plus optional operational notes.
 
@@ -58,17 +61,17 @@ Do not add labels for states already represented by `state.md`, PR draft/ready s
 - last state change date
 - actor who moved the state
 - short reason or decision record
-- links to relevant issue, PR, review, or committed artifact
+- links to relevant issue, PR, review, comment, or committed artifact
 
 Routine transitions should update `state.md`. Avoid timeline noise from comments, label churn, or PR body edits when a state-file update is sufficient.
 
-Completed work does not need a terminal workflow state. Record the PO approval review, merged PR, and closed issue links in `state.md`; GitHub remains authoritative for merge and close state.
+Completed work does not need a terminal workflow state. Record the PO approval evidence, merged PR, and closed issue links in `state.md`; GitHub remains authoritative for merge and close state.
 
 ## State Ownership
 
 - PO Agent owns transitions into `draft`, `architecture-review`, and product-input returns caused by product clarification.
 - Architect Agent owns transitions into `implementing` and product-input returns caused by architecture concerns.
-- PO Agent records PO review outcomes from PR reviews.
+- PO Agent records PO review outcomes from the configured product review mode.
 - Architect Agent records merge/close completion links after the PR is merged and issue is closed.
 
 ## Issue And PR Links
